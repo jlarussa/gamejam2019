@@ -11,4 +11,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fed66279c7d8c74eb08706036a78df7, type: 3}
   m_Name: FirstNames
   m_EditorClassIdentifier: 
-  strings: []
+  strings:
+  - James
+  - Korbin
+  - Matt
+  - Mike
+  - Taia
+  - Beejul
+  - Theo
+  - 
+  - 
+  - 
