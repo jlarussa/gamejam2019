@@ -75,10 +75,11 @@ public class Job : ScriptableObject
 
   public void StartJob()
   {
-    if ( CanStart() )
+    if ( !CanStart() )
     {
-      CurrentState = JobState.inProgress;
+      return;
     }
+    CurrentState = JobState.inProgress;
     startTime = DateTime.UtcNow;
     endTime = DateTime.UtcNow + new TimeSpan( 0, 0, Duration );
   }
@@ -156,5 +157,17 @@ public class Job : ScriptableObject
     Staff = new List<Employee>();
     startTime = DateTime.UtcNow;
     endTime = DateTime.UtcNow + new TimeSpan( 0, 0, Expiration );
+  }
+
+  public void AddEmployee( Employee newStaff )
+  {
+    if ( Staff.Count < PersonnelLimit)
+    {
+      Staff.Add( newStaff );
+    }
+  }
+
+  public void RemoveEmployee( Employee removeStaff )
+  {
   }
 }

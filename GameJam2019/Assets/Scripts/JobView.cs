@@ -38,6 +38,11 @@ public class JobView : MonoBehaviour
     SourceJob.ResetJob();
   }
 
+  public void AddEmployee( Employee newStaff )
+  {
+    SourceJob.AddEmployee( newStaff );
+  }
+
   private void Awake()
   {
     SourceJob.ResetJob();
