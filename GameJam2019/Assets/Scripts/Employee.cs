@@ -8,7 +8,7 @@ public class Employee
 {
   public int Stealth { get; set; }
   public int Hacking { get; set; }
-  public int Assasination { get; set; }
+  public int Assassination { get; set; }
   public string Name { get; set; }
   public string Description { get; set; }
 }
