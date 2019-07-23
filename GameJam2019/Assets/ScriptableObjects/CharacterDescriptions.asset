@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fed66279c7d8c74eb08706036a78df7, type: 3}
+  m_Name: CharacterDescriptions
+  m_EditorClassIdentifier: 
+  strings:
+  - born and raised on the streets of Mega City 1
+  - murdered their own brother over a slice of bread
+  - defected from an alien invading force
+  - can only count to 10... in binary
+  - puts ketchup on everything
+  - chews with their mouth open
+  - demands payment in sloppy joes
+  - can lick their own elbow
+  - fights only using a ballpoint pen
+  - on the run from the global police
+  - bleeps the bloops
+  - plays the electric tambourine
+  - kills with kindness but also guns when necessary
+  - has been looking for their lost cat for the past 3 years
+  - is an evil twin
+  - has an evil twin
+  - uses an excessive amount of emoticons
+  - uses an excessive amount of !'s
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 

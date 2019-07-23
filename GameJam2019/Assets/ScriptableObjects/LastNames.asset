@@ -11,4 +11,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fed66279c7d8c74eb08706036a78df7, type: 3}
   m_Name: LastNames
   m_EditorClassIdentifier: 
-  strings: []
+  strings:
+  - Maverick
+  - Rakkam
+  - Silverhand
+  - McGrath
+  - O'Greedy
+  - Knucklebuster
+  - Tanaka
+  - Wilde
+  - Liverwurst
+  - Black
+  - Green
+  - White
+  - Biggs
+  - Hammermin
+  - Poppins
+  - Parker
+  - Shadid
+  - Messy
+  - Czar
+  - Fist
+  - Hippopotamus
+  - Starr
+  - Stewart
+  - Little
+  - Vandal
+  - Campion
+  - Terror
+  - Fallon
+  - Hardcore
+  - Rotten
+  - Drakon
+  - Stormkin
+  - Embers
+  - Hailstorm
+  - Raydar
+  - McStevens
+  - Monroe
+  - Poe
+  - Snow
+  - Cantrip
+  - Washington
+  - Moscone
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
