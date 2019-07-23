@@ -64,8 +64,11 @@ public class Job : ScriptableObject
     private set
     {
       currentState = value;
+      currentStateUpdated?.Invoke();
     }
   }
+
+  public Action currentStateUpdated;
 
   public DateTime startTime { get; private set; }
   public DateTime endTime { get; private set; }
@@ -111,7 +114,7 @@ public class Job : ScriptableObject
         remainingHacking -= person.Hacking;
         remainingStealth -= person.Stealth;
       }
-      return ( Math.Max( 0.0, remainingAssassination ) + Math.Max( 0.0, remainingHacking ) + Math.Max( 0.0, remainingStealth ) ) / ( RequiredAssasination + RequiredHacking + RequiredStealth );
+      return 1.0 - ( Math.Max( 0.0, remainingAssassination ) + Math.Max( 0.0, remainingHacking ) + Math.Max( 0.0, remainingStealth ) ) / ( RequiredAssasination + RequiredHacking + RequiredStealth );
     }
   }
 
@@ -123,8 +126,8 @@ public class Job : ScriptableObject
   public void EndJob()
   {
     var random = new System.Random(DateTime.UtcNow.Millisecond);
-    int roll = random.Next( 0, 10 );
-    if (roll > CompletionChance * 10)
+    int roll = random.Next( 0, 100 );
+    if (roll > CompletionChance * 100)
     {
       FailJob();
       return;

@@ -61,9 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Employee.cs" />
-    <Compile Include="Assets\Scripts\GameStateChangeEvent.cs" />
-    <Compile Include="Assets\Scripts\GameStateMachine.cs" />
+    <Compile Include="Assets\Scripts\GameEvent Scripts\GameEvent.cs" />
+    <Compile Include="Assets\Scripts\GameEvent Scripts\GameEventListener.cs" />
+    <Compile Include="Assets\Scripts\GameEvent Scripts\OnAwakeTriggerEvent.cs" />
     <Compile Include="Assets\Scripts\Job.cs" />
+    <Compile Include="Assets\Scripts\JobView.cs" />
     <Compile Include="Assets\Scripts\StringList.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/jlarussa/Documents/gamejam2019/GameJam2019/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
