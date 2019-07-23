@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Employee.cs" />
     <Compile Include="Assets\Scripts\Job.cs" />
+    <Compile Include="Assets\Scripts\StringList.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/jlarussa/Documents/gamejam2019/GameJam2019/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
