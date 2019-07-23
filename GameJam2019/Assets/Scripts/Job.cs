@@ -39,7 +39,7 @@ public class Job : ScriptableObject
   private int goldReward;
   public int GoldReward => goldReward;
 
-  public int personnelLimit { get; set; } = 3;
+  public int PersonnelLimit { get; set; } = 3;
 
   public int Penalty { get; set; } = 10;
 

@@ -7,5 +7,5 @@ public class StringList : ScriptableObject
 {
   [SerializeField]
   private List<string> strings;
-  public List<string> Strings => Strings; 
+  public List<string> Strings => strings; 
 }
