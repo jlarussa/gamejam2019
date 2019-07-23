@@ -35,7 +35,11 @@ public class EmployeeView : MonoBehaviour
     private void UpdateFlavorViews()
     {
         NameText.text = EmployeeData.Name;
-        DescriptionText.text = EmployeeData.Description;
+        if ( DescriptionText != null )
+        {
+            DescriptionText.text = EmployeeData.Description;
+        }
+        
     }
 
     private void UpdateStatViews()
