@@ -11,7 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c85358294514d2e489e1c80b286af161, type: 3}
   m_Name: Job1
   m_EditorClassIdentifier: 
-  requiredHacking: 0
+  requiredHacking: 1
+  requiredStealth: 1
+  requiredAssassination: 1
   difficulty: 1
   goldCost: 0
   jobName: The Italian Job

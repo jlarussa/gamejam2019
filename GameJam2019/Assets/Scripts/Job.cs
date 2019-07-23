@@ -9,8 +9,13 @@ public class Job : ScriptableObject
   private int requiredHacking;
   public int RequiredHacking => requiredHacking;
 
-  public int RequiredStealth { get; set; }
-  public int RequiredAssasination { get; set; }
+  [SerializeField]
+  private int requiredStealth;
+  public int RequiredStealth => requiredStealth;
+
+  [SerializeField]
+  private int requiredAssassination;
+  public int RequiredAssasination => requiredAssassination;
 
   [SerializeField]
   private int difficulty;
