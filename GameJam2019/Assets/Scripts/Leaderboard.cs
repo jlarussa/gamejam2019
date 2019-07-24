@@ -21,14 +21,24 @@ public class Leaderboard : MonoBehaviour {
 		public Score[] scores;
 	}
 
+	[Serializable]
+	public class PostResponse
+	{
+		public int statusCode;
+		public Entries body;
+	}
+
 	public Entries entries;
-	
+
+
 	// Use this for initialization
-	void Start () {
-		StartCoroutine(GetRequest( URL ));
+	void Start ()
+	{
+		// StartCoroutine( GetLeaderboard( URL ) );
+		//StartCoroutine(PostScore( URL, "Theo", 9003 ) );
 	}
 	
-	IEnumerator GetRequest(string url)
+	IEnumerator GetLeaderboard(string url)
 	{
 		using (UnityWebRequest webRequest = UnityWebRequest.Get(url))
 		{
@@ -42,6 +52,28 @@ public class Leaderboard : MonoBehaviour {
 			else
 			{
 				entries = JsonUtility.FromJson<Entries>( webRequest.downloadHandler.text );
+				// Debug.Log( entries.scores[0].name + ": " + entries.scores[0].score );
+			}
+		}
+	}
+
+	IEnumerator PostScore( string url, string playerName, int playerScore )
+	{
+		string urlWithScore = url + String.Format( "?name={0}&score={1}", playerName, playerScore );
+
+		using ( UnityWebRequest webRequest = UnityWebRequest.Post( urlWithScore, "" ) )
+		{
+			webRequest.SetRequestHeader( "Content-Type", "application/json" );
+			yield return webRequest.SendWebRequest();
+			
+			if (webRequest.isNetworkError)
+			{
+				Debug.Log("Error: " + webRequest.error);
+			}
+			else
+			{
+				PostResponse resp = JsonUtility.FromJson<PostResponse>( webRequest.downloadHandler.text );
+				// Debug.Log( resp.body.scores[0].name + ": " + resp.body.scores[0].score );
 			}
 		}
 	}
