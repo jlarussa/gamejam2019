@@ -32,9 +32,13 @@ public class JobInventory : MonoBehaviour
 
     public void AddTrainingJobs(int difficulty)
     {
-        hackTraining = new Job("Train Hacking", difficulty, true, false, false);
-        stealthTraining = new Job("Train Stealth", difficulty, false, true, false);
-        assassinationTraining = new Job("Train Assassination", difficulty, false, false, true);
+        hackTraining = new Job("Train Hacking", difficulty );
+        stealthTraining = new Job("Train Stealth", difficulty );
+        assassinationTraining = new Job("Train Assassination", difficulty );
+        
+        hackTraining.SetHackTraining();
+        stealthTraining.SetStealthTraining();
+        assassinationTraining.SetAssassinationTraining();
     }
 
     public void Tick()
@@ -48,7 +52,7 @@ public class JobInventory : MonoBehaviour
         assassinationTraining.Tick();
         hackTraining.Tick();
     }
-
+ 
     public void NewDay(int difficulty)
     {
         jobs.Clear();

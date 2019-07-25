@@ -83,30 +83,26 @@ public class Job
     endTime = DateTime.UtcNow + new TimeSpan( 0, 0, Duration );
   }
 
-  // For creating training jobs
-  public Job( string name, int difficulty, bool hack, bool stealth, bool assassin )
-  {
-    this.trainHacking = hack;
-    this.trainStealth = stealth;
-    this.trainAssassination = assassin;
-
-    jobName = name;
-    goldCost = 100 * difficulty;
-    goldReward = 0;
-    PersonnelLimit = 1;
-    expiration = 999;
-  }
-
-  public Job( string name, int difficulty )
+  public Job( string name, int difficulty, bool training = false )
   {
     this.difficulty = difficulty;
     this.jobName = name;
     currentState = JobState.planning;
-    
-    var random = new System.Random(DateTime.UtcNow.Millisecond);
-    requiredHacking = random.Next( 1, difficulty );
-    requiredAssassination = random.Next( 1, difficulty );
-    requiredStealth = random.Next( 1, difficulty );
+
+    if ( training )
+    {
+      goldCost = 100 * difficulty;
+      goldReward = 0;
+      PersonnelLimit = 1;
+      expiration = 999;
+    }
+    else
+    {
+      var random = new System.Random(DateTime.UtcNow.Millisecond);
+      requiredHacking = random.Next( 1, difficulty );
+      requiredAssassination = random.Next( 1, difficulty );
+      requiredStealth = random.Next( 1, difficulty );
+    }
   }
 
   public void Tick()
@@ -219,4 +215,8 @@ public class Job
     
     return false;
   }
+
+  public void SetHackTraining() { trainHacking = true; }
+  public void SetAssassinationTraining() { trainAssassination = true; }
+  public void SetStealthTraining() { trainStealth = true; }
 }
