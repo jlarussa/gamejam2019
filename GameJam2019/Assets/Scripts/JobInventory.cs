@@ -21,13 +21,22 @@ public class JobInventory : MonoBehaviour
 
     private Job hackTraining;
     public Job HackTraining => hackTraining;
+    
+    private Dictionary<Job, JobView> jobToView = new Dictionary<Job, JobView>();
+
+    private int jobEarnings = 0;
+    public int JobEarnings => jobEarnings;
 
     public void AddJob(int difficulty)
     {
         Job j = new Job(jobNames.Strings[Random.Range(0, jobNames.Strings.Count)], difficulty);
+        j.OnJobCollected += OnJobCompleted;
         jobs.Add(j);
         var spawnedJob = Instantiate(jobViewPrefab, transform);
-        spawnedJob.GetComponent<JobView>().Initialize(j);
+        JobView jView = spawnedJob.GetComponent<JobView>();
+        jView.Initialize(j);
+
+        jobToView[ j ] = jView;
     }
 
     public void AddTrainingJobs(int difficulty)
@@ -55,8 +64,13 @@ public class JobInventory : MonoBehaviour
  
     public void NewDay(int difficulty)
     {
-        jobs.Clear();
+        jobEarnings = 0;
         
+        foreach ( Job j in jobs )
+        {
+            j.OnJobCollected -= OnJobCompleted;
+        }
+
         if ( transform.childCount > 0 )
         {
             for ( int i = 0; i < transform.childCount; i++ )
@@ -65,10 +79,24 @@ public class JobInventory : MonoBehaviour
             }
         }
         
+        jobs.Clear();
+        jobToView.Clear();
+        
         // Always start the day with 2 jobs
         AddJob(difficulty);
         AddJob(difficulty);
 
         AddTrainingJobs(difficulty);
     }
+
+    public void OnJobCompleted( Job j )
+    {
+        j.OnJobCollected -= OnJobCompleted;
+        jobEarnings += j.GoldReward;
+
+        Destroy( jobToView[j].transform.gameObject );
+        jobs.Remove( j );
+        jobToView.Remove( j );
+    }
+    
 }

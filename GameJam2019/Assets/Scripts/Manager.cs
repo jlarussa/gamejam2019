@@ -24,6 +24,9 @@ public class Manager : MonoBehaviour
 
     [SerializeField]
     private Text ClockDisplay;
+    
+    [SerializeField]
+    private Text MoneyDisplay;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -33,6 +36,7 @@ public class Manager : MonoBehaviour
             currentDay.Tick();
             var timeRemaining = currentDay.Endtime - DateTime.UtcNow;
             ClockDisplay.text = ((int)timeRemaining.TotalSeconds).ToString();
+            MoneyDisplay.text = "$" + jobs.JobEarnings;
         }
     }
 
