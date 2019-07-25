@@ -162,6 +162,8 @@ public class Job
     CurrentState = JobState.failed;
   }
 
+    public Action<Job> OnJobCollected;
+
     public void CollectJob()
     {
         foreach (Employee staff in Staff)
@@ -176,6 +178,7 @@ public class Job
         {
 
         }
+        OnJobCollected?.Invoke(this);
     }
 
     public void CompleteJob()
