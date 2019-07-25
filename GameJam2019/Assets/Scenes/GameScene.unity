@@ -163,22 +163,22 @@ Prefab:
     - target: {fileID: 224796966225950156, guid: 0638056374f6b46d8a162a61b8b04634,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 37.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224796966225950156, guid: 0638056374f6b46d8a162a61b8b04634,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224796966225950156, guid: 0638056374f6b46d8a162a61b8b04634,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 75
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224796966225950156, guid: 0638056374f6b46d8a162a61b8b04634,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224796966225950156, guid: 0638056374f6b46d8a162a61b8b04634,
         type: 2}
@@ -188,7 +188,7 @@ Prefab:
     - target: {fileID: 224796966225950156, guid: 0638056374f6b46d8a162a61b8b04634,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224796966225950156, guid: 0638056374f6b46d8a162a61b8b04634,
         type: 2}
@@ -198,7 +198,7 @@ Prefab:
     - target: {fileID: 224796966225950156, guid: 0638056374f6b46d8a162a61b8b04634,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224796966225950156, guid: 0638056374f6b46d8a162a61b8b04634,
         type: 2}
@@ -209,10 +209,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1288178350167238, guid: 0638056374f6b46d8a162a61b8b04634, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0638056374f6b46d8a162a61b8b04634, type: 2}
@@ -338,6 +334,7 @@ MonoBehaviour:
   EmployeeLastNames: {fileID: 11400000, guid: e9bf5dae05b710e45a36b85c176571e7, type: 2}
   EmployeeDescriptions: {fileID: 11400000, guid: cc9679ce455896246b6a0668cbcc93e2,
     type: 2}
+  Portraits: {fileID: 11400000, guid: abf6b1927588d4623b18bf4aa602eebf, type: 2}
 --- !u!1 &230726071
 GameObject:
   m_ObjectHideFlags: 0
