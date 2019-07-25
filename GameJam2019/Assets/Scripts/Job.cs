@@ -97,9 +97,10 @@ public class Job
     expiration = 999;
   }
 
-  public Job( int difficulty )
+  public Job( string name, int difficulty )
   {
     this.difficulty = difficulty;
+    this.jobName = name;
     currentState = JobState.planning;
     
     var random = new System.Random(DateTime.UtcNow.Millisecond);

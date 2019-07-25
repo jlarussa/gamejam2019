@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class JobInventory : MonoBehaviour
 {
+	[SerializeField]
+	private StringList jobNames;
+	
 	private List<Job> jobs = new List<Job>();
 	public List<Job> Jobs => jobs;
 
@@ -18,7 +21,7 @@ public class JobInventory : MonoBehaviour
 
 	public void AddJob( int difficulty )
 	{
-		Job j = new Job( difficulty);
+		Job j = new Job( jobNames.Strings[ Random.Range( 0, jobNames.Strings.Count ) ], difficulty);
 		jobs.Add( j );
 	}
 
