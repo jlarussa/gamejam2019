@@ -14,6 +14,9 @@ public class EmployeeView : MonoBehaviour
     public Text AssassinationText;
     public Text StealthText;
 
+    [SerializeField]
+    private GameObject awayOverlay;
+
     private Employee employeeData;
     public Employee EmployeeData
     {
@@ -23,14 +26,21 @@ public class EmployeeView : MonoBehaviour
             employeeData = value;
             UpdateFlavorViews();
             UpdateStatViews();
+            employeeData.awayStateChanged += UpdateAwayOverlay;
         }
     }
-    
+
+    private void UpdateAwayOverlay()
+    {
+        awayOverlay.SetActive(employeeData.Away);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         UpdateFlavorViews();
         UpdateStatViews();
+
     }
 
     private void UpdateFlavorViews()
