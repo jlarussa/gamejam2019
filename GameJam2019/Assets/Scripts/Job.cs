@@ -162,7 +162,26 @@ public class Job
     CurrentState = JobState.failed;
   }
 
-  public void CompleteJob()
+    public Action<Job> OnJobCollected;
+
+    public void CollectJob()
+    {
+        foreach (Employee staff in Staff)
+        {
+            staff.Away = false;
+        }
+        if (CurrentState == JobState.complete)
+        {
+
+        }
+        if (CurrentState == JobState.failed)
+        {
+
+        }
+        OnJobCollected?.Invoke(this);
+    }
+
+    public void CompleteJob()
   {
     CurrentState = JobState.complete;
     

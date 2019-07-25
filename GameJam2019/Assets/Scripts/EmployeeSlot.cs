@@ -18,7 +18,7 @@ public class EmployeeSlot : MonoBehaviour {
 
     public bool occupied { get; private set; } = false;
 
-    public Action<Employee> employeeRemoved;
+    public Func<Employee, bool> employeeRemoved;
 
     private void Awake()
     {
@@ -34,9 +34,11 @@ public class EmployeeSlot : MonoBehaviour {
 
     public void RemoveEmployee()
     {
-        employeeRemoved?.Invoke(currentEmployee);
-        currentEmployee = null;
-        portrait.sprite = defaultSprite;
-        occupied = false;
+        if (employeeRemoved != null && employeeRemoved.Invoke(currentEmployee))
+        {
+            currentEmployee = null;
+            portrait.sprite = defaultSprite;
+            occupied = false;
+        }
     }
 }

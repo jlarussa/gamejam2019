@@ -6,7 +6,8 @@ using UnityEngine;
 public class Day
 {
     public int BaseMoneyRequired = 1000;
-    public TimeSpan BaseDayLength = TimeSpan.FromMinutes(4);
+    //public TimeSpan BaseDayLength = TimeSpan.FromMinutes(4);
+    public TimeSpan BaseDayLength = TimeSpan.FromSeconds(5);
 
     private bool inProgress = false;
     private int difficulty;
@@ -42,16 +43,16 @@ public class Day
         {
             End();
         }
-
-        if (DateTime.UtcNow > nextJobTime)
-        {
-            jobs.AddJob(difficulty);
-            nextJobTime = DateTime.UtcNow + new TimeSpan(0, 0, (int)((1.0 / difficulty) * standardJobRate));
-        }
-
+        
         if (inProgress)
         {
             jobs.Tick();
+            
+            if (DateTime.UtcNow > nextJobTime)
+            {
+                jobs.AddJob(difficulty);
+                nextJobTime = DateTime.UtcNow + new TimeSpan(0, 0, (int)((1.0 / difficulty) * standardJobRate));
+            }
         }
     }
 

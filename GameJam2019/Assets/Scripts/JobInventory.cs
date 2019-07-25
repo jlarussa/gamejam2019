@@ -56,7 +56,15 @@ public class JobInventory : MonoBehaviour
     public void NewDay(int difficulty)
     {
         jobs.Clear();
-
+        
+        if ( transform.childCount > 0 )
+        {
+            for ( int i = 0; i < transform.childCount; i++ )
+            {
+                Destroy( transform.GetChild( i ).gameObject  );
+            }
+        }
+        
         // Always start the day with 2 jobs
         AddJob(difficulty);
         AddJob(difficulty);
