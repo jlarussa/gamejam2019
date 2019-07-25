@@ -34,7 +34,6 @@ public class JobView : MonoBehaviour
   private Slider TimeSlider;
 
     private List<EmployeeSlot> personnelImages = new List<EmployeeSlot>();
-    private int nextEmployeeIndex = 0;
 
   public void StartJob()
   {
@@ -50,17 +49,20 @@ public class JobView : MonoBehaviour
   {
     if (SourceJob.AddEmployee( newStaff ))
         {
-            personnelImages[nextEmployeeIndex].SetEmployee(newStaff);
-            nextEmployeeIndex += 1;
+            foreach (EmployeeSlot slot in personnelImages)
+            {
+                if (!slot.occupied)
+                {
+                    slot.SetEmployee(newStaff);
+                    return;
+                }
+            }
         }
     }
 
     public void RemoveEmployee(Employee oldStaff)
     {
-        if (SourceJob.RemoveEmployee(oldStaff))
-        {
-            
-        }
+        SourceJob.RemoveEmployee(oldStaff);
     }
 
     private void Awake()
@@ -72,8 +74,10 @@ public class JobView : MonoBehaviour
         for (int i = 0; i<SourceJob.PersonnelLimit ; i++)
         {
             var newEmployee = Instantiate(employeePrefab, employeeListParent.transform);
+            var personnelSlot = newEmployee.GetComponent<EmployeeSlot>();
             newEmployee.SetActive(true);
-            personnelImages.Add(newEmployee.GetComponent<EmployeeSlot>());
+            personnelImages.Add(personnelSlot);
+            personnelSlot.employeeRemoved += RemoveEmployee;
         }
     }
 
