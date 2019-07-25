@@ -48,10 +48,10 @@ public class Job
   private string jobName;
   public string Name => jobName;
 
-  private int duration = 10;
+  private int duration = 30;
   public int Duration => duration;
 
-  private int expiration = 10;
+  private int expiration = 30;
   public int Expiration => expiration;
 
   public List<Employee> Staff { get; set; } = new List<Employee>();

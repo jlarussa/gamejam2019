@@ -6,48 +6,51 @@ using UnityEngine.UI;
 
 public class JobView : MonoBehaviour
 {
-  [SerializeField]
-  private Job sourceJob;
-  public Job SourceJob
-  {
-    get { return sourceJob; }
-    private set
+    private Job sourceJob;
+    public Job SourceJob
     {
-      sourceJob = value;
-      titleText.text = sourceJob.Name;
-      sourceJob.currentStateUpdated += OnJobStateUpdated;
+        get { return sourceJob; }
+        private set
+        {
+            sourceJob = value;
+            titleText.text = sourceJob.Name;
+            rewardText.text = "Reward: " + sourceJob.GoldReward.ToString();
+            sourceJob.currentStateUpdated += OnJobStateUpdated;
+        }
     }
-  }
     [SerializeField]
     private GameObject employeePrefab = null;
 
     [SerializeField]
     private GameObject employeeListParent = null;
 
-  [SerializeField]
-  private Text stateText;
+    [SerializeField]
+    private Text stateText;
 
-  [SerializeField]
-  private Text titleText;
+    [SerializeField]
+    private Text titleText;
 
-  [SerializeField]
-  private Slider TimeSlider;
+    [SerializeField]
+    private Slider TimeSlider;
+
+    [SerializeField]
+    private Text rewardText;
 
     private List<EmployeeSlot> personnelImages = new List<EmployeeSlot>();
 
-  public void StartJob()
-  {
-    SourceJob.StartJob();
-  }
+    public void StartJob()
+    {
+        SourceJob.StartJob();
+    }
 
-  public void ResetJob()
-  {
-    SourceJob.ResetJob();
-  }
+    public void ResetJob()
+    {
+        SourceJob.ResetJob();
+    }
 
-  public void AddEmployee( Employee newStaff )
-  {
-    if (newStaff.Away == false && SourceJob.AddEmployee( newStaff ))
+    public void AddEmployee(Employee newStaff)
+    {
+        if (newStaff.Away == false && SourceJob.AddEmployee(newStaff))
         {
             newStaff.Away = true;
             foreach (EmployeeSlot slot in personnelImages)
@@ -67,13 +70,14 @@ public class JobView : MonoBehaviour
         oldStaff.Away = false;
     }
 
-    private void Awake()
-  {
-    SourceJob.ResetJob();
-    stateText.text = SourceJob.CurrentState.ToString();
-    titleText.text = SourceJob.Name;
-    SourceJob.currentStateUpdated += OnJobStateUpdated;
-        for (int i = 0; i<SourceJob.PersonnelLimit ; i++)
+    public void Initialize(Job source)
+    {
+        SourceJob = source;
+        SourceJob.ResetJob();
+        stateText.text = SourceJob.CurrentState.ToString();
+        titleText.text = SourceJob.Name;
+        SourceJob.currentStateUpdated += OnJobStateUpdated;
+        for (int i = 0; i < SourceJob.PersonnelLimit; i++)
         {
             var newEmployee = Instantiate(employeePrefab, employeeListParent.transform);
             var personnelSlot = newEmployee.GetComponent<EmployeeSlot>();
@@ -83,14 +87,14 @@ public class JobView : MonoBehaviour
         }
     }
 
-  private void OnJobStateUpdated()
-  {
-    stateText.text = SourceJob.CurrentState.ToString();
-  }
+    private void OnJobStateUpdated()
+    {
+        stateText.text = SourceJob.CurrentState.ToString();
+    }
 
-  void FixedUpdate()
-  {
-    SourceJob.Tick();
-    TimeSlider.value = (float)((SourceJob.endTime - DateTime.UtcNow).TotalSeconds / (SourceJob.endTime - SourceJob.startTime).TotalSeconds) ;
-  }
+    void FixedUpdate()
+    {
+        SourceJob.Tick();
+        TimeSlider.value = (float)((SourceJob.endTime - DateTime.UtcNow).TotalSeconds / (SourceJob.endTime - SourceJob.startTime).TotalSeconds);
+    }
 }
