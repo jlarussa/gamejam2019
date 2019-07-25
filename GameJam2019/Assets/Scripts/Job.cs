@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu( menuName = "Job" )]
-public class Job : ScriptableObject
+public class Job
 {
   public enum JobState
   {
@@ -14,44 +13,44 @@ public class Job : ScriptableObject
     failed = 3,
     expired = 4
   }
-
-  [SerializeField]
+  
   private int requiredHacking;
   public int RequiredHacking => requiredHacking;
 
-  [SerializeField]
   private int requiredStealth;
   public int RequiredStealth => requiredStealth;
 
-  [SerializeField]
   private int requiredAssassination;
   public int RequiredAssasination => requiredAssassination;
 
-  [SerializeField]
+  private bool trainHacking = false;
+  public bool TrainHacking => trainHacking;
+  
+  private bool trainStealth = false;
+  public bool TrainStealth => trainStealth;
+  
+  private bool trainAssassination = false;
+  public bool TrainAssassination => trainAssassination;
+  
   private int difficulty;
   public int Difficulty => difficulty;
 
-  [SerializeField]
-  private int goldCost;
+  private int goldCost = 0;
   public int GoldCost => goldCost;
 
-  [SerializeField]
-  private int goldReward;
+  private int goldReward = 100;
   public int GoldReward => goldReward;
 
   public int PersonnelLimit { get; set; } = 3;
 
   public int Penalty { get; set; } = 10;
 
-  [SerializeField]
   private string jobName;
   public string Name => jobName;
 
-  [SerializeField]
   private int duration = 10;
   public int Duration => duration;
 
-  [SerializeField]
   private int expiration = 10;
   public int Expiration => expiration;
 
@@ -82,6 +81,32 @@ public class Job : ScriptableObject
     CurrentState = JobState.inProgress;
     startTime = DateTime.UtcNow;
     endTime = DateTime.UtcNow + new TimeSpan( 0, 0, Duration );
+  }
+
+  // For creating training jobs
+  public Job( string name, int difficulty, bool hack, bool stealth, bool assassin )
+  {
+    this.trainHacking = hack;
+    this.trainStealth = stealth;
+    this.trainAssassination = assassin;
+
+    jobName = name;
+    goldCost = 100 * difficulty;
+    goldReward = 0;
+    PersonnelLimit = 1;
+    expiration = 999;
+  }
+
+  public Job( string name, int difficulty )
+  {
+    this.difficulty = difficulty;
+    this.jobName = name;
+    currentState = JobState.planning;
+    
+    var random = new System.Random(DateTime.UtcNow.Millisecond);
+    requiredHacking = random.Next( 1, difficulty );
+    requiredAssassination = random.Next( 1, difficulty );
+    requiredStealth = random.Next( 1, difficulty );
   }
 
   public void Tick()
@@ -144,6 +169,21 @@ public class Job : ScriptableObject
   public void CompleteJob()
   {
     CurrentState = JobState.complete;
+    
+    if ( trainAssassination )
+    {
+      Staff[ 0 ].Assassination++;
+    }
+
+    if ( trainHacking )
+    {
+      Staff[ 0 ].Hacking++;
+    }
+
+    if ( trainStealth )
+    {
+      Staff[ 0 ].Stealth++;
+    }
   }
 
   private bool CanStart()
@@ -165,16 +205,18 @@ public class Job : ScriptableObject
     {
       Staff.Add( newStaff );
     }
-        return Staff.Count <= PersonnelLimit;
+    
+    return Staff.Count <= PersonnelLimit;
   }
 
   public bool RemoveEmployee( Employee removeStaff )
   {
-        if (Staff.Contains(removeStaff))
-        {
-            Staff.Remove(removeStaff);
-            return true;
-        }
-        return false;
+    if (Staff.Contains(removeStaff))
+    {
+        Staff.Remove(removeStaff);
+        return true;
     }
+    
+    return false;
+  }
 }

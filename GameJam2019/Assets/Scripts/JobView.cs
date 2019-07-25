@@ -47,8 +47,9 @@ public class JobView : MonoBehaviour
 
   public void AddEmployee( Employee newStaff )
   {
-    if (SourceJob.AddEmployee( newStaff ))
+    if (newStaff.Away == false && SourceJob.AddEmployee( newStaff ))
         {
+            newStaff.Away = true;
             foreach (EmployeeSlot slot in personnelImages)
             {
                 if (!slot.occupied)
@@ -63,6 +64,7 @@ public class JobView : MonoBehaviour
     public void RemoveEmployee(Employee oldStaff)
     {
         SourceJob.RemoveEmployee(oldStaff);
+        oldStaff.Away = false;
     }
 
     private void Awake()

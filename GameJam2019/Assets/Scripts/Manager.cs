@@ -17,6 +17,9 @@ public class Manager : MonoBehaviour
 	[SerializeField]
 	private EmployeeInventory employees;
 
+	[SerializeField]
+	private JobInventory jobs;
+
 	// Update is called once per frame
 	void FixedUpdate () {
 		if ( currentDay != null )
@@ -30,10 +33,10 @@ public class Manager : MonoBehaviour
 		Debug.Log( "day start" );
 		dayCount++;
 		
-		currentDay = new Day( dayCount );
+		currentDay = new Day( dayCount, jobs );
 		currentDay.EndDay += OnDayEnd;
 		
-		currentDay.Start();
+		currentDay.Begin();
 	}
 	
 	public void OnDayEnd()
@@ -42,6 +45,7 @@ public class Manager : MonoBehaviour
 		
 		totalMoney += currentDay.Earned;
 		currentDay.EndDay -= OnDayEnd;
+		// TODO: don't call this
 		currentDay.End();
 		
 	}

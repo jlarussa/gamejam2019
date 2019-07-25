@@ -9,9 +9,10 @@ public class Day
   public TimeSpan BaseDayLength = TimeSpan.FromMinutes( 4 );
 
   private bool inProgress = false;
+  private int difficulty;
   
   private int earned = 0;
-  public int Earned => earned;
+  public int Earned => earned; 
 
   private int requiredEarning;
   public int RequiredEarning => requiredEarning;
@@ -24,10 +25,11 @@ public class Day
 
   public Action EndDay;
 
-  public Day( int difficulty )
+  public Day( int difficulty, JobInventory ji )
   {
+    this.difficulty = difficulty;
     requiredEarning = ( int ) Math.Pow( 1.25, difficulty ) * BaseMoneyRequired;
-    jobs = new JobInventory();
+    jobs = ji;
   }
 
   public void Tick()
@@ -43,8 +45,9 @@ public class Day
     }
   }
 
-  public void Start()
+  public void Begin()
   {
+    Jobs.NewDay( difficulty );
     inProgress = true;
     endTime = DateTime.Now.Add( BaseDayLength );
   }

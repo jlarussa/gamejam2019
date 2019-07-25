@@ -13,4 +13,15 @@ public class Employee
   public string LastName { get; set; }
   public string Description { get; set; }
   public int PortraitIndex {get; set;}
+    private bool away = false;
+    public bool Away 
+    { 
+    get { return away; } 
+    set 
+    {
+     away = value;
+            awayStateChanged?.Invoke();
+     }
+     }
+    public Action awayStateChanged;
 }

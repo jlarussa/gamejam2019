@@ -90,6 +90,7 @@ public class EmployeeInventory : MonoBehaviour
             }
         }
         var instance = GameObject.Instantiate( EmployeeUIPrefab, EmployeeUIParent );
+        instance.SetActive(true);
         
         // This is dumb but I'm being lazy and sloppy for the sake of speed
         // God save the queen
