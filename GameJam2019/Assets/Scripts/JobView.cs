@@ -45,7 +45,7 @@ public class JobView : MonoBehaviour
 
     public void CompleteJob()
     {
-        SourceJob.CompleteJob();
+        SourceJob.CollectJob();
     }
 
     public void ResetJob()
