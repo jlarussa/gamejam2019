@@ -43,6 +43,11 @@ public class JobView : MonoBehaviour
         SourceJob.StartJob();
     }
 
+    public void CompleteJob()
+    {
+        SourceJob.CompleteJob();
+    }
+
     public void ResetJob()
     {
         SourceJob.ResetJob();
@@ -64,10 +69,15 @@ public class JobView : MonoBehaviour
         }
     }
 
-    public void RemoveEmployee(Employee oldStaff)
+    public bool RemoveEmployee(Employee oldStaff)
     {
-        SourceJob.RemoveEmployee(oldStaff);
-        oldStaff.Away = false;
+        if (sourceJob != null && sourceJob.CurrentState == Job.JobState.planning)
+        {
+            SourceJob.RemoveEmployee(oldStaff);
+            oldStaff.Away = false;
+            return true;
+        }
+        return false;
     }
 
     public void Initialize(Job source)
