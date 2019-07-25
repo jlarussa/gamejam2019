@@ -19,13 +19,15 @@ private Vector2 originalLocation;
 
 	public override void OnPointerDown( PointerEventData eventData)
 	{
+        base.OnPointerDown(eventData);
 		dragging = true;
 		originalLocation = this.gameObject.transform.position;
 	}
 
 	public override void OnPointerUp( PointerEventData eventData )
 	{
-		dragging = false;
+        base.OnPointerUp (eventData);
+        dragging = false;
 		transform.position = originalLocation;
 	}
 
