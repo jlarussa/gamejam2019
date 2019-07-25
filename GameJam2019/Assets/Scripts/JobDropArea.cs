@@ -8,26 +8,29 @@ public class JobDropArea : MonoBehaviour
     private BoxCollider2D jobCollider = null;
 
     [SerializeField]
-    private Job targetJob = null;
+    private JobView targetJob = null;
 
-    private Collider pendingCollider = null;
+    private Collider2D pendingCollider = null;
 
-    private void OnTriggerEnter( Collider other )
+    private void OnTriggerEnter2D( Collider2D other )
     {
         pendingCollider = other;
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnTriggerExit2D(Collider2D other)
     {
         pendingCollider = null;
     }
 
-    private void OnMouseUp()
+    private void Update()
     {
-        if (pendingCollider != null)
+        if (Input.GetMouseButtonUp(0))
         {
-            var Employee = pendingCollider?.gameObject?.GetComponent<EmployeeView>()?.EmployeeData;
-            targetJob.AddEmployee(Employee);
+            if (pendingCollider != null)
+            {
+                var Employee = pendingCollider?.gameObject?.GetComponent<EmployeeView>()?.EmployeeData;
+                targetJob.AddEmployee(Employee);
+            }
         }
     }
 

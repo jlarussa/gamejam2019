@@ -18,6 +18,11 @@ public class JobView : MonoBehaviour
       sourceJob.currentStateUpdated += OnJobStateUpdated;
     }
   }
+    [SerializeField]
+    private GameObject employeePrefab = null;
+
+    [SerializeField]
+    private GameObject employeeListParent = null;
 
   [SerializeField]
   private Text stateText;
@@ -27,6 +32,9 @@ public class JobView : MonoBehaviour
 
   [SerializeField]
   private Slider TimeSlider;
+
+    private List<GameObject> personnelImages = new List<GameObject>();
+    private int nextEmployeeIndex = 0;
 
   public void StartJob()
   {
@@ -40,8 +48,12 @@ public class JobView : MonoBehaviour
 
   public void AddEmployee( Employee newStaff )
   {
-    SourceJob.AddEmployee( newStaff );
-  }
+    if (SourceJob.AddEmployee( newStaff ))
+        {
+            personnelImages[nextEmployeeIndex].GetComponent<Image>().color = Color.blue;
+            nextEmployeeIndex += 1;
+        }
+    }
 
   private void Awake()
   {
@@ -49,7 +61,13 @@ public class JobView : MonoBehaviour
     stateText.text = SourceJob.CurrentState.ToString();
     titleText.text = SourceJob.Name;
     SourceJob.currentStateUpdated += OnJobStateUpdated;
-  }
+        for (int i = 0; i<SourceJob.PersonnelLimit ; i++)
+        {
+            var newEmployee = Instantiate(employeePrefab, employeeListParent.transform);
+            newEmployee.SetActive(true);
+            personnelImages.Add(newEmployee);
+        }
+    }
 
   private void OnJobStateUpdated()
   {

@@ -159,12 +159,13 @@ public class Job : ScriptableObject
     endTime = DateTime.UtcNow + new TimeSpan( 0, 0, Expiration );
   }
 
-  public void AddEmployee( Employee newStaff )
+  public bool AddEmployee( Employee newStaff )
   {
     if ( Staff.Count < PersonnelLimit)
     {
       Staff.Add( newStaff );
     }
+        return Staff.Count <= PersonnelLimit;
   }
 
   public void RemoveEmployee( Employee removeStaff )
