@@ -503,6 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0309d564e1cfd40d58718adfacd15af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PortraitUI: {fileID: 114519346109845648}
   NameText: {fileID: 114115870871123442}
   DescriptionText: {fileID: 0}
   HackingText: {fileID: 114722182030317854}

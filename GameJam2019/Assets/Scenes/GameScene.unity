@@ -234,6 +234,7 @@ MonoBehaviour:
   EmployeeLastNames: {fileID: 11400000, guid: e9bf5dae05b710e45a36b85c176571e7, type: 2}
   EmployeeDescriptions: {fileID: 11400000, guid: cc9679ce455896246b6a0668cbcc93e2,
     type: 2}
+  Portraits: {fileID: 11400000, guid: abf6b1927588d4623b18bf4aa602eebf, type: 2}
 --- !u!1 &230726071
 GameObject:
   m_ObjectHideFlags: 0
