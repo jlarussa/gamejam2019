@@ -6,7 +6,8 @@ using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
-
+    public GameEvent DayEndEvent;
+    
     private Day currentDay;
 
     private int dayCount = 0;
@@ -52,8 +53,9 @@ public class Manager : MonoBehaviour
 
         totalMoney += currentDay.Earned;
         currentDay.EndDay -= OnDayEnd;
+        DayEndEvent.Raise();
         // TODO: don't call this
-        currentDay.End();
+        // currentDay.End();
 
     }
 }

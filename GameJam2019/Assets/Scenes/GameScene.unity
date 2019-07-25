@@ -468,6 +468,11 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 65
   m_LayoutPriority: 1
+--- !u!1 &332574907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1660289928088728, guid: 084386a9c77024c1c9e4a76f73559be4,
+    type: 2}
+  m_PrefabInternal: {fileID: 2044576755}
 --- !u!1001 &429180905
 Prefab:
   m_ObjectHideFlags: 0
@@ -1209,6 +1214,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 332574907}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1331229298
@@ -1258,6 +1274,17 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 332574907}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
@@ -1391,6 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cc01dab79fae4d9e995862cbca175f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DayEndEvent: {fileID: 11400000, guid: 1dcc3bd76f0cf43d8933e67b8345f6a9, type: 2}
   employees: {fileID: 216652387}
   jobs: {fileID: 927487403}
   ClockDisplay: {fileID: 1148958737}
@@ -1609,26 +1637,30 @@ Prefab:
     - target: {fileID: 224262665560498262, guid: 084386a9c77024c1c9e4a76f73559be4,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224262665560498262, guid: 084386a9c77024c1c9e4a76f73559be4,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224262665560498262, guid: 084386a9c77024c1c9e4a76f73559be4,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 224262665560498262, guid: 084386a9c77024c1c9e4a76f73559be4,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 224262665560498262, guid: 084386a9c77024c1c9e4a76f73559be4,
         type: 2}
       propertyPath: m_SizeDelta.y
+      value: 71.223305
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660289928088728, guid: 084386a9c77024c1c9e4a76f73559be4, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
