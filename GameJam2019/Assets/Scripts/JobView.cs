@@ -36,11 +36,21 @@ public class JobView : MonoBehaviour
     [SerializeField]
     private Text rewardText;
 
+    [SerializeField]
+    private Button startButton;
+
+    [SerializeField]
+    private Button completeButton;
+
     private List<EmployeeSlot> personnelImages = new List<EmployeeSlot>();
 
     public void StartJob()
     {
-        SourceJob.StartJob();
+        if ( SourceJob.StartJob() )
+        {
+            startButton.gameObject.SetActive( false );
+            completeButton.gameObject.SetActive( true );
+        }
     }
 
     public void CompleteJob()

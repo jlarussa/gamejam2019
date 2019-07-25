@@ -26,7 +26,10 @@ public class Manager : MonoBehaviour
     private Text ClockDisplay;
     
     [SerializeField]
-    private Text MoneyDisplay;
+    private Text DayMoneyDisplay;
+    
+    [SerializeField]
+    private Text TotalMoneyDisplay;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -36,7 +39,7 @@ public class Manager : MonoBehaviour
             currentDay.Tick();
             var timeRemaining = currentDay.Endtime - DateTime.UtcNow;
             ClockDisplay.text = ((int)timeRemaining.TotalSeconds).ToString();
-            MoneyDisplay.text = "$" + jobs.JobEarnings;
+            DayMoneyDisplay.text = "$" + jobs.JobEarnings;
         }
     }
 
@@ -55,11 +58,10 @@ public class Manager : MonoBehaviour
     {
         Debug.Log("day end");
 
-        totalMoney += currentDay.Earned;
+        totalMoney += jobs.JobEarnings;
+        TotalMoneyDisplay.text = "$" + totalMoney;
+        
         currentDay.EndDay -= OnDayEnd;
         DayEndEvent.Raise();
-        // TODO: don't call this
-        // currentDay.End();
-
     }
 }
