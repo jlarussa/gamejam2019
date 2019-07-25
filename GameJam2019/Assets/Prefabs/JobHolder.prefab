@@ -793,6 +793,8 @@ MonoBehaviour:
   titleText: {fileID: 114823434927211132}
   TimeSlider: {fileID: 114624188780772360}
   rewardText: {fileID: 114276655096492846}
+  startButton: {fileID: 114923731313423484}
+  completeButton: {fileID: 114763742445433420}
 --- !u!114 &114507970138957052
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1156,28 +1158,6 @@ MonoBehaviour:
       - m_Target: {fileID: 114428333320351752}
         m_MethodName: StartJob
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1669035535782776}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1546781011995064}
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

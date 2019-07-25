@@ -72,15 +72,17 @@ public class Job
   public DateTime startTime { get; private set; }
   public DateTime endTime { get; private set; }
 
-  public void StartJob()
+  public bool StartJob()
   {
     if ( !CanStart() )
     {
-      return;
+      return false;
     }
     CurrentState = JobState.inProgress;
     startTime = DateTime.UtcNow;
     endTime = DateTime.UtcNow + new TimeSpan( 0, 0, Duration );
+
+    return true;
   }
 
   public Job( string name, int difficulty, bool training = false )
@@ -92,6 +94,7 @@ public class Job
     if ( training )
     {
       goldCost = 100 * difficulty;
+      Penalty = 0;
       goldReward = 0;
       PersonnelLimit = 1;
       expiration = 999;
@@ -99,6 +102,9 @@ public class Job
     else
     {
       var random = new System.Random(DateTime.UtcNow.Millisecond);
+      goldCost = 25 * difficulty;
+      Penalty = 25 * difficulty;
+      goldReward = 100 * difficulty;
       requiredHacking = random.Next( 1, difficulty );
       requiredAssassination = random.Next( 1, difficulty );
       requiredStealth = random.Next( 1, difficulty );
@@ -143,6 +149,7 @@ public class Job
   public void ExpireJob()
   {
     CurrentState = JobState.expired;
+    CollectJob();
   }
 
   public void EndJob()
@@ -166,16 +173,13 @@ public class Job
 
     public void CollectJob()
     {
-        if (CurrentState == JobState.failed || CurrentState == JobState.complete)
+        if (CurrentState == JobState.failed || CurrentState == JobState.complete || CurrentState == JobState.expired)
         {
             foreach (Employee staff in Staff)
             {
                 staff.Away = false;
             }
-            if (CurrentState == JobState.failed)
-            {
-
-            }
+            
             OnJobCollected?.Invoke(this);
         }
     }
@@ -202,12 +206,18 @@ public class Job
 
   private bool CanStart()
   {
-    return CurrentState == JobState.planning;
+    return CurrentState == JobState.planning && Staff.Count > 0;
   }
 
   public void ResetJob()
   {
     CurrentState = JobState.planning;
+    
+    foreach (Employee staff in Staff)
+    {
+      staff.Away = false;
+    }
+    
     Staff = new List<Employee>();
     startTime = DateTime.UtcNow;
     endTime = DateTime.UtcNow + new TimeSpan( 0, 0, Expiration );
@@ -215,6 +225,11 @@ public class Job
 
   public bool AddEmployee( Employee newStaff )
   {
+    if ( currentState != JobState.planning )
+    {
+      return false;
+    }
+    
     if ( Staff.Count < PersonnelLimit)
     {
       Staff.Add( newStaff );

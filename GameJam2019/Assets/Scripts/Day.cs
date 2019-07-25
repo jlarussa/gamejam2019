@@ -7,14 +7,11 @@ public class Day
 {
     public int BaseMoneyRequired = 1000;
     //public TimeSpan BaseDayLength = TimeSpan.FromMinutes(4);
-    public TimeSpan BaseDayLength = TimeSpan.FromMinutes(1);
+    public TimeSpan BaseDayLength = TimeSpan.FromSeconds(35);
 
     private bool inProgress = false;
     private int difficulty;
-
-    private int earned = 0;
-    public int Earned => earned;
-
+    
     private int requiredEarning;
     public int RequiredEarning => requiredEarning;
 

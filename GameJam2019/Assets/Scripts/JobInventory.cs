@@ -69,6 +69,7 @@ public class JobInventory : MonoBehaviour
         foreach ( Job j in jobs )
         {
             j.OnJobCollected -= OnJobCompleted;
+            j.ResetJob();
         }
 
         if ( transform.childCount > 0 )
@@ -92,8 +93,9 @@ public class JobInventory : MonoBehaviour
     public void OnJobCompleted( Job j )
     {
         j.OnJobCollected -= OnJobCompleted;
-        jobEarnings += j.GoldReward;
+        int jobEarn = j.CurrentState == Job.JobState.complete ? j.GoldReward : ( -1 * j.Penalty );
 
+        jobEarnings += jobEarn;
         Destroy( jobToView[j].transform.gameObject );
         jobs.Remove( j );
         jobToView.Remove( j );
