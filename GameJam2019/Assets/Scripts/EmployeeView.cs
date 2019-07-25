@@ -9,10 +9,14 @@ public class EmployeeView : MonoBehaviour
     public Text NameText;
     public Text DescriptionText;
 
-    // Change these to slider bars?
     public Text HackingText;
+    public Slider HackingSlider;
+
     public Text AssassinationText;
+    public Slider AssassinationSlider;
+
     public Text StealthText;
+    public Slider StealthSlider;
 
     [SerializeField]
     private GameObject awayOverlay;
@@ -54,8 +58,25 @@ public class EmployeeView : MonoBehaviour
 
     private void UpdateStatViews()
     {
-        HackingText.text = EmployeeData.Hacking.ToString();
-        AssassinationText.text = EmployeeData.Assassination.ToString();
-        StealthText.text = EmployeeData.Stealth.ToString();
+        HackingText.text = string.Empty;
+        if ( EmployeeData.Hacking > 0 )
+        {
+            HackingText.text = EmployeeData.Hacking.ToString();
+        }
+        HackingSlider.value = EmployeeData.Hacking;
+
+        AssassinationText.text = string.Empty;
+        if ( EmployeeData.Assassination > 0 )
+        {
+            AssassinationText.text = EmployeeData.Assassination.ToString();
+        }
+        AssassinationSlider.value = EmployeeData.Assassination;
+
+        StealthText.text = string.Empty;
+        if ( EmployeeData.Stealth > 0 )
+        {
+            StealthText.text = EmployeeData.Stealth.ToString();
+        }
+        StealthSlider.value = EmployeeData.Stealth;
     }
 }
