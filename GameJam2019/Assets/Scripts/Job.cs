@@ -166,19 +166,18 @@ public class Job
 
     public void CollectJob()
     {
-        foreach (Employee staff in Staff)
+        if (CurrentState == JobState.failed || CurrentState == JobState.complete)
         {
-            staff.Away = false;
-        }
-        if (CurrentState == JobState.complete)
-        {
+            foreach (Employee staff in Staff)
+            {
+                staff.Away = false;
+            }
+            if (CurrentState == JobState.failed)
+            {
 
+            }
+            OnJobCollected?.Invoke(this);
         }
-        if (CurrentState == JobState.failed)
-        {
-
-        }
-        OnJobCollected?.Invoke(this);
     }
 
     public void CompleteJob()
