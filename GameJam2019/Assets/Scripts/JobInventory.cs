@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class JobInventory
 {
-	private List<Job> jobs;
+	private List<Job> jobs = new List<Job>();
 	public List<Job> Jobs => jobs;
 
 	private Job stealthTraining;
@@ -15,6 +15,16 @@ public class JobInventory
 	
 	private Job hackTraining;
 	public Job HackTraining => hackTraining;
+
+	public void AddJob()
+	{
+		
+	}
+
+	public void AddTraining()
+	{
+		// TODO: this
+	}
 
 	public void Tick()
 	{

@@ -27,6 +27,7 @@ public class Day
   public Day( int difficulty )
   {
     requiredEarning = ( int ) Math.Pow( 1.25, difficulty ) * BaseMoneyRequired;
+    jobs = new JobInventory();
   }
 
   public void Tick()

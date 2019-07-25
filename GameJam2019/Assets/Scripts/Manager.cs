@@ -39,8 +39,10 @@ public class Manager : MonoBehaviour
 	public void OnDayEnd()
 	{
 		Debug.Log( "day end" );
-
+		
 		totalMoney += currentDay.Earned;
 		currentDay.EndDay -= OnDayEnd;
+		currentDay.End();
+		
 	}
 }
