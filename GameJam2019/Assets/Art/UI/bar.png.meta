@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eb07ea3fd72dba143b4102789310bfd3
+guid: b67f283dd5c874a4f8a59ad782e293d1
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -93,6 +93,17 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1

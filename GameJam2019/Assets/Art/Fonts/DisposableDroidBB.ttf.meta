@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c9f1673fa9c997d46bf689ae999b2ebb
+guid: e6aab0726bf26034eb8c2b35fd31d157
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Pixel
+  fontName: DisposableDroid BB
   fontNames:
-  - Pixel
+  - DisposableDroid BB
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
