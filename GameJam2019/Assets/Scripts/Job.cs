@@ -168,7 +168,13 @@ public class Job : ScriptableObject
         return Staff.Count <= PersonnelLimit;
   }
 
-  public void RemoveEmployee( Employee removeStaff )
+  public bool RemoveEmployee( Employee removeStaff )
   {
-  }
+        if (Staff.Contains(removeStaff))
+        {
+            Staff.Remove(removeStaff);
+            return true;
+        }
+        return false;
+    }
 }

@@ -33,7 +33,7 @@ public class JobView : MonoBehaviour
   [SerializeField]
   private Slider TimeSlider;
 
-    private List<GameObject> personnelImages = new List<GameObject>();
+    private List<EmployeeSlot> personnelImages = new List<EmployeeSlot>();
     private int nextEmployeeIndex = 0;
 
   public void StartJob()
@@ -50,12 +50,20 @@ public class JobView : MonoBehaviour
   {
     if (SourceJob.AddEmployee( newStaff ))
         {
-            personnelImages[nextEmployeeIndex].GetComponent<Image>().color = Color.blue;
+            personnelImages[nextEmployeeIndex].SetEmployee(newStaff);
             nextEmployeeIndex += 1;
         }
     }
 
-  private void Awake()
+    public void RemoveEmployee(Employee oldStaff)
+    {
+        if (SourceJob.RemoveEmployee(oldStaff))
+        {
+            
+        }
+    }
+
+    private void Awake()
   {
     SourceJob.ResetJob();
     stateText.text = SourceJob.CurrentState.ToString();
@@ -65,7 +73,7 @@ public class JobView : MonoBehaviour
         {
             var newEmployee = Instantiate(employeePrefab, employeeListParent.transform);
             newEmployee.SetActive(true);
-            personnelImages.Add(newEmployee);
+            personnelImages.Add(newEmployee.GetComponent<EmployeeSlot>());
         }
     }
 

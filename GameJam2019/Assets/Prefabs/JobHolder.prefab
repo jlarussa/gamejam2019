@@ -251,6 +251,8 @@ GameObject:
   - component: {fileID: 222489444156136678}
   - component: {fileID: 114153885964787840}
   - component: {fileID: 114094819525876054}
+  - component: {fileID: 114368347710196208}
+  - component: {fileID: 114015650527247700}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -333,6 +335,47 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jobCollider: {fileID: 61994718348539890}
   targetJob: {fileID: 114428333320351752}
+--- !u!114 &114015650527247700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948804616345702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 114153885964787840}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114094819525876054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -579,6 +622,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 12.5
   m_LayoutPriority: 1
+--- !u!114 &114368347710196208
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948804616345702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3ee3b617df54476afc7574b62f7c51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portraitList: {fileID: 11400000, guid: abf6b1927588d4623b18bf4aa602eebf, type: 2}
+  portrait: {fileID: 114153885964787840}
 --- !u!114 &114385124957668484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1105,7 +1161,7 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1653609453531938}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
