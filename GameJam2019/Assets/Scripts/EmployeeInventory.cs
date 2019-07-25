@@ -46,7 +46,8 @@ public class EmployeeInventory : MonoBehaviour
         string firstName = EmployeeFirstNames.Strings[ y ];
         //string firstName = EmployeeFirstNames.Strings[ Random.Range( 0, EmployeeFirstNames.Strings.Count ) ];
         string lastName = EmployeeLastNames.Strings[ Random.Range( 0, EmployeeLastNames.Strings.Count ) ];
-        e.Name = firstName + " " + lastName;
+        e.FirstName = firstName;
+        e.LastName = lastName;
 
         e.Description = EmployeeDescriptions.Strings[ Random.Range( 0, EmployeeDescriptions.Strings.Count ) ];
 
