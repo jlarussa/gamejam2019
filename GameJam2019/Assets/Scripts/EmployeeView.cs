@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class EmployeeView : MonoBehaviour
 {
+    public Image PortraitUI;
     public Text NameText;
     public Text DescriptionText;
 
@@ -38,8 +39,7 @@ public class EmployeeView : MonoBehaviour
         if ( DescriptionText != null )
         {
             DescriptionText.text = EmployeeData.Description;
-        }
-        
+        } 
     }
 
     private void UpdateStatViews()

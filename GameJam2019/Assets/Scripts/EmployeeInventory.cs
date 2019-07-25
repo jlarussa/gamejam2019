@@ -16,6 +16,18 @@ public class EmployeeInventory : MonoBehaviour
     public StringList EmployeeFirstNames = null;
     public StringList EmployeeLastNames = null;
     public StringList EmployeeDescriptions = null;
+    public ImageList Portraits = null;
+
+    private List<int> usedPortaitIndexes = new List<int>();
+    private List<int> availablePortaitIndexes = new List<int>();
+
+    void Start()
+    {
+        for ( int i = 0; i < Portraits.Images.Count; i++ )
+        {
+            availablePortaitIndexes.Add( i );
+        }
+    }
 
     public void RecruitNewEmployee()
     {
@@ -32,7 +44,7 @@ public class EmployeeInventory : MonoBehaviour
         // TODO: randomly pick image
         int x = EmployeeFirstNames.Strings.Count;
         int y = Random.Range( 0, x );
-string firstName = EmployeeFirstNames.Strings[ y ];
+        string firstName = EmployeeFirstNames.Strings[ y ];
         //string firstName = EmployeeFirstNames.Strings[ Random.Range( 0, EmployeeFirstNames.Strings.Count ) ];
         string lastName = EmployeeLastNames.Strings[ Random.Range( 0, EmployeeLastNames.Strings.Count ) ];
         e.Name = firstName + " " + lastName;
@@ -78,19 +90,24 @@ string firstName = EmployeeFirstNames.Strings[ y ];
             }
         }
         var instance = GameObject.Instantiate( EmployeeUIPrefab, EmployeeUIParent );
-        instance.GetComponent<EmployeeView>().EmployeeData = e;
+        
+        // This is dumb but I'm being lazy and sloppy for the sake of speed
+        // God save the queen
+        if ( availablePortaitIndexes.Count > 0 )
+        {
+            int i = Random.Range( 0, availablePortaitIndexes.Count );
+            e.PortraitIndex = availablePortaitIndexes[ i ];
+            availablePortaitIndexes.Remove( i );
+        }
+        else
+        {
+            e.PortraitIndex = Random.Range( 0, Portraits.Images.Count );
+        }
+        
+        var view = instance.GetComponent<EmployeeView>();
+        view.EmployeeData = e;
+        view.PortraitUI.sprite = Portraits.Images[ e.PortraitIndex ];
+
         return instance;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
