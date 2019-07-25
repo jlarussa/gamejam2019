@@ -18,7 +18,6 @@ public class EmployeeInventory : MonoBehaviour
     public StringList EmployeeDescriptions = null;
     public ImageList Portraits = null;
 
-    private List<int> usedPortaitIndexes = new List<int>();
     private List<int> availablePortaitIndexes = new List<int>();
 
     void Start()
@@ -97,7 +96,7 @@ public class EmployeeInventory : MonoBehaviour
         {
             int i = Random.Range( 0, availablePortaitIndexes.Count );
             e.PortraitIndex = availablePortaitIndexes[ i ];
-            availablePortaitIndexes.Remove( i );
+            availablePortaitIndexes.RemoveAt( i );
         }
         else
         {
