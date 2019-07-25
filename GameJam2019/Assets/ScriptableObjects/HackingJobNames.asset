@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fed66279c7d8c74eb08706036a78df7, type: 3}
+  m_Name: HackingJobNames
+  m_EditorClassIdentifier: 
+  strings:
+  - trigger the EMP
+  - hack into the mainframe
+  - cut the power
+  - steal the target's identity
+  - hack the network
+  - delete memes from the internet
+  - leak GoT spoilers
+  - intercept vital documents
+  - erase CCTV footage
+  - wipe the Bank of E-Merica servers
+  - bug the office of General Rufus
+  - circulate counterfeit credits
+  - make copies of data
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
