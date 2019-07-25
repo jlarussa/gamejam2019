@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class GameEventListener : MonoBehaviour
+public class GameEventListener : MonoBehaviour, IGameEventListener
 {
     public GameEvent Event;
     public UnityEvent Response;
@@ -18,12 +18,7 @@ public class GameEventListener : MonoBehaviour
         Event.UnregisterListener( this );
     }
 
-    public void OnEventRaised()
-    {
-        Response.Invoke();
-    }
-
-    public void OnEventRaised( GameObject go )
+    public virtual void OnEventRaised( GameEvent e )
     {
         Response.Invoke();
     }

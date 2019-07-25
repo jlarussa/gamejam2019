@@ -28,7 +28,7 @@ public class JobInventory
 
 	public void Tick()
 	{
-		Debug.Log( "job tick" );
+		//Debug.Log( "job tick" );
 		
 //		foreach ( Job j in jobs )
 //		{
