@@ -57,6 +57,8 @@ GameObject:
   - component: {fileID: 114883464043029594}
   - component: {fileID: 114272844897776856}
   - component: {fileID: 114911852716812692}
+  - component: {fileID: 61691913229045042}
+  - component: {fileID: 114517429211800210}
   m_Layer: 0
   m_Name: EmployeeViewPrefab
   m_TagString: Untagged
@@ -166,6 +168,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!61 &61691913229045042
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1288178350167238}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.398098, y: 0.0001487732}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 72.084526, y: 96.77282}
+  m_EdgeRadius: 0
 --- !u!114 &114069299539321400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,6 +365,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114517429211800210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1288178350167238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e21ad0c6cea403b9d951d149c00db1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+  delegates: []
 --- !u!114 &114519346109845648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -463,6 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0309d564e1cfd40d58718adfacd15af4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PortraitUI: {fileID: 114519346109845648}
   NameText: {fileID: 114115870871123442}
   DescriptionText: {fileID: 0}
   HackingText: {fileID: 114722182030317854}
