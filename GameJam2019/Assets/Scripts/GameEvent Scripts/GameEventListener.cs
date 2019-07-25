@@ -22,4 +22,9 @@ public class GameEventListener : MonoBehaviour
     {
         Response.Invoke();
     }
+
+    public void OnEventRaised( GameObject go )
+    {
+        Response.Invoke();
+    }
 }
