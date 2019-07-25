@@ -108,7 +108,6 @@ GameObject:
   - component: {fileID: 224168465443355812}
   - component: {fileID: 222506684402483024}
   - component: {fileID: 114349369719814876}
-  - component: {fileID: 114031258218505494}
   - component: {fileID: 114148165507922782}
   m_Layer: 0
   m_Name: TotalMoneyHeader
@@ -213,23 +212,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114031258218505494
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1412990138633336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4bd24ed99e434ae29e3b9bedb6125cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Text: {fileID: 0}
-  Messages: {fileID: 11400000, guid: c4188e4cd8c00214d98d49da53d76623, type: 2}
-  scrollyBit: {fileID: 0}
-  ScrollSpeed: 100
-  BaseSecondsBetweenMessages: 15
-  OffsetSecondsBetweenMessages: 5
 --- !u!114 &114095217057029646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -729,10 +711,10 @@ RectTransform:
   m_Father: {fileID: 224611741390023720}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 71.223305}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224522693337064042
 RectTransform:
@@ -804,10 +786,10 @@ RectTransform:
   m_Father: {fileID: 224254974100463322}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 71.223305}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &224937632572766766
 RectTransform:
