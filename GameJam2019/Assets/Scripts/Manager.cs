@@ -140,8 +140,8 @@ public class Manager : MonoBehaviour
     public void MoneyChanged( int money )
     {
         totalMoney += money;
-        dailyMoney += money;
-        DayMoneyDisplay.text = "$" + dailyMoney;
+        dailyMoney = Mathf.Max(dailyMoney+money, 0);
+        DayMoneyDisplay.text = "$" + dailyMoney + "/" + currentDay.RequiredEarning;
         TotalMoneyDisplay.text = "$" + totalMoney;
 
     }
