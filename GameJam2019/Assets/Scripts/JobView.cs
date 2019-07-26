@@ -93,6 +93,9 @@ public class JobView : MonoBehaviour
   [SerializeField]
   private Slider stealthSlider;
 
+  [SerializeField]
+  private Text successChanceText;
+
   private List<EmployeeSlot> personnelImages = new List<EmployeeSlot>();
 
   public void StartJob()
@@ -132,6 +135,7 @@ public class JobView : MonoBehaviour
           HackingValue += newStaff.Hacking;
           AssassinationValue += newStaff.Assassination;
           StealthValue += newStaff.Stealth;
+          successChanceText.text = string.Format( "Success chance: {0}%", sourceJob.CompletionChance * 100 );
           return;
         }
       }
@@ -147,6 +151,7 @@ public class JobView : MonoBehaviour
       HackingValue -= oldStaff.Hacking;
       AssassinationValue -= oldStaff.Assassination;
       StealthValue -= oldStaff.Stealth;
+      successChanceText.text = string.Format( "Success chance: {0}%", sourceJob.CompletionChance * 100);
       return true;
     }
     return false;
@@ -159,6 +164,7 @@ public class JobView : MonoBehaviour
     stateText.text = SourceJob.CurrentState.ToString();
     titleText.text = SourceJob.Name;
     SourceJob.currentStateUpdated += OnJobStateUpdated;
+    successChanceText.text = "Success Chance: 0%";
     for ( int i = 0; i < SourceJob.PersonnelLimit; i++ )
     {
       var newEmployee = Instantiate( employeePrefab, employeeListParent.transform );
