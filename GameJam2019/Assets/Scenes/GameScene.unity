@@ -1112,9 +1112,9 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_Spacing: 5
   m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
+  m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildControlHeight: 1
 --- !u!1001 &935299629
 Prefab:
   m_ObjectHideFlags: 0
@@ -1888,6 +1888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DayEndEvent: {fileID: 11400000, guid: 1dcc3bd76f0cf43d8933e67b8345f6a9, type: 2}
+  DaySeconds: 60
   employees: {fileID: 216652387}
   jobs: {fileID: 927487403}
   ClockDisplay: {fileID: 1148958737}
