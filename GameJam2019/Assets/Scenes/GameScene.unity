@@ -1217,11 +1217,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 216652387}
-    - target: {fileID: 114637331700127696, guid: d2a7ebc2a8b50fa4cbb78227ac491577,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1350550258}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2a7ebc2a8b50fa4cbb78227ac491577, type: 2}
   m_IsPrefabAsset: 0
@@ -2281,11 +2276,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1202193476}
     m_Modifications:
-    - target: {fileID: 114175692019123314, guid: 590b1a1c4a2e1fb4aa377ad44d224bc7,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 224796372859746404, guid: 590b1a1c4a2e1fb4aa377ad44d224bc7,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -2378,29 +2368,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114175692019123314, guid: 590b1a1c4a2e1fb4aa377ad44d224bc7,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114175692019123314, guid: 590b1a1c4a2e1fb4aa377ad44d224bc7,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114175692019123314, guid: 590b1a1c4a2e1fb4aa377ad44d224bc7,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 1350550258}
-    - target: {fileID: 114175692019123314, guid: 590b1a1c4a2e1fb4aa377ad44d224bc7,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: OnDayStart
-      objectReference: {fileID: 0}
-    - target: {fileID: 114175692019123314, guid: 590b1a1c4a2e1fb4aa377ad44d224bc7,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 590b1a1c4a2e1fb4aa377ad44d224bc7, type: 2}
   m_IsPrefabAsset: 0
