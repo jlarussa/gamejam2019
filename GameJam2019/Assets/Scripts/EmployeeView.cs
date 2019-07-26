@@ -25,6 +25,9 @@ public class EmployeeView : MonoBehaviour
     [SerializeField]
     private GameObject awayOverlay;
 
+    [SerializeField]
+    private Text employeeDescription;
+
     private Employee employeeData;
     public Employee EmployeeData
     {
@@ -35,6 +38,7 @@ public class EmployeeView : MonoBehaviour
             UpdateFlavorViews();
             UpdateStatViews();
             employeeData.awayStateChanged += UpdateAwayOverlay;
+            employeeDescription.text = employeeData.Description;
         }
     }
 
