@@ -13,6 +13,8 @@ public class JobInventory : MonoBehaviour
     private List<Job> jobs = new List<Job>();
     public List<Job> Jobs => jobs;
 
+    private List<Job> toDestroy = new List<Job>();
+    
     private Job stealthTraining;
     public Job StealthTraining => stealthTraining;
 
@@ -57,6 +59,11 @@ public class JobInventory : MonoBehaviour
             j.Tick();
         }
 
+        foreach ( Job j in toDestroy )
+        {
+            jobs.Remove( j );
+        }
+        
         stealthTraining.Tick();
         assassinationTraining.Tick();
         hackTraining.Tick();
@@ -74,9 +81,8 @@ public class JobInventory : MonoBehaviour
 
         if ( transform.childCount > 0 )
         {
-            for ( int i = 0; i < transform.childCount; i++ )
-            {
-                Destroy( transform.GetChild( i ).gameObject  );
+            foreach (Transform child in transform) {
+                Destroy(child.gameObject);
             }
         }
         
@@ -96,8 +102,8 @@ public class JobInventory : MonoBehaviour
         int jobEarn = j.CurrentState == Job.JobState.complete ? j.GoldReward : ( -1 * j.Penalty );
 
         jobEarnings += jobEarn;
-        Destroy( jobToView[j].transform.gameObject );
-        jobs.Remove( j );
+        toDestroy.Add( j );
+        Destroy( jobToView[ j ].gameObject );
         jobToView.Remove( j );
     }
     
