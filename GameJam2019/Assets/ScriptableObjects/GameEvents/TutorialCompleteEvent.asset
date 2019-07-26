@@ -9,5 +9,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 648fd672427d8428e8748cb49aebccbb, type: 3}
-  m_Name: BackTutorialEvent
+  m_Name: TutorialCompleteEvent
   m_EditorClassIdentifier: 
