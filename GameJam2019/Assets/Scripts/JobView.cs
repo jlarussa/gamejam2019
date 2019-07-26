@@ -45,6 +45,12 @@ public class JobView : MonoBehaviour
   [SerializeField]
   private Button completeButton;
 
+  [SerializeField]
+  private Color CompleteColor;
+
+  [SerializeField]
+  private Image background;
+
   private int hackingValue;
   public int HackingValue
   {
@@ -180,6 +186,11 @@ public class JobView : MonoBehaviour
     stateText.text = SourceJob.CurrentState.ToString();
     completeButton.interactable = CanCollectJob();
     startButton.interactable = SourceJob.CanStart();
+    if (sourceJob.CurrentState == Job.JobState.complete)
+    {
+      completeButton.image.color = CompleteColor;
+      background.color = CompleteColor;
+    }
   }
 
   void FixedUpdate()
