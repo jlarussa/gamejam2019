@@ -42,25 +42,67 @@ public class Manager : MonoBehaviour
     [SerializeField]
     private Text TotalMoneyDisplay;
 
+    [SerializeField]
+    private Text lateDisplay;
+    private DateTime lateTime;
+
+    [SerializeField]
+    private Text planningText;
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (currentDay != null)
+        if (currentDay != null && currentDay.inProgress)
         {
             currentDay.Tick();
             var timeRemaining = currentDay.Endtime - DateTime.UtcNow;
             ClockDisplay.text = ((int)timeRemaining.TotalSeconds).ToString();
         }
+        else
+        {
+            lateDisplay.text = "It looks like you're already " + ((int)(DateTime.UtcNow - lateTime).TotalSeconds).ToString() + " seconds late.";
+        }
+    }
+
+    public void CreateDay()
+    {
+        dayCount++;
+        currentDay = new Day(dayCount, jobs);
+        planningText.text = "It's your " + AddOrdinal(DayCount) + " day on the job. For today let's set a simple target. Just try to make " + currentDay.RequiredEarning + " dollars for the company without losing too many employees.";
+    }
+
+    public string AddOrdinal(int num)
+    {
+        if (num <= 0) return num.ToString();
+
+        switch (num % 100)
+        {
+            case 11:
+            case 12:
+            case 13:
+                return num + "th";
+        }
+
+        switch (num % 10)
+        {
+            case 1:
+                return num + "st";
+            case 2:
+                return num + "nd";
+            case 3:
+                return num + "rd";
+            default:
+                return num + "th";
+        }
+
     }
 
     public void OnDayStart()
     {
         Debug.Log("day start");
-        dayCount++;
         dailyMoney = 0;
         MoneyChanged( 0 );
 
-        currentDay = new Day(dayCount, jobs);
         currentDay.EndDay += OnDayEnd;
 
         currentDay.Begin( DaySeconds );
@@ -72,6 +114,7 @@ public class Manager : MonoBehaviour
         
         currentDay.EndDay -= OnDayEnd;
         DayEndEvent.Raise();
+        CreateDay();
     }
 
     public bool CanChangeMoney( int money )
@@ -92,5 +135,9 @@ public class Manager : MonoBehaviour
     {
         jobs.MoneyUpdated += MoneyChanged;
         Current = this;
+        CreateDay();
+        lateTime = DateTime.UtcNow;
+        employees.RecruitNewEmployee();
+        employees.RecruitNewEmployee();
     }
 }

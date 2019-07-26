@@ -9,6 +9,8 @@ public class TutorialManager : MonoBehaviour {
 	public Transform tutorialScreenParent;
 
 	public Text DoneButtonText;
+    [SerializeField]
+    private Button backButton;
 	public GameEvent TutorialCompleteEvent;
 
 	private int index = -1;
@@ -18,7 +20,11 @@ public class TutorialManager : MonoBehaviour {
 	{
 		index = Mathf.Max( 0, index - 1);
 		LoadTutorial();
-	}
+        if (index == 0)
+        {
+            backButton.interactable = false;
+        }
+    }
 	
 	public void NextTutorial()
 	{
@@ -33,6 +39,7 @@ public class TutorialManager : MonoBehaviour {
 
 		index = Mathf.Min( tutorialList.Prefabs.Count - 1, index + 1 );
 		LoadTutorial();
+        backButton.interactable = true;
 	}
 
 	private void LoadTutorial()

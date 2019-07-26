@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Day
 {
-    public int BaseMoneyRequired = 1000;
+    public int BaseMoneyRequired = 300;
 
-    private bool inProgress = false;
+    public bool inProgress { get; private set; } = false;
     private int difficulty;
     
     private int requiredEarning;
