@@ -106,9 +106,9 @@ public class Job
       var random = new System.Random(DateTime.UtcNow.Millisecond);
       Penalty = 25 * difficulty;
       goldReward = 100 * difficulty;
-      requiredHacking = random.Next( 1, difficulty );
-      requiredAssassination = random.Next( 1, difficulty );
-      requiredStealth = random.Next( 1, difficulty );
+      requiredHacking = random.Next( 1, difficulty + 2);
+      requiredAssassination = random.Next( 1, difficulty + 2);
+      requiredStealth = random.Next( 1, difficulty + 2);
     }
   }
 
@@ -205,7 +205,7 @@ public class Job
     }
   }
 
-  private bool CanStart()
+  public bool CanStart()
   {
     return CurrentState == JobState.planning && Staff.Count > 0;
   }
@@ -252,6 +252,7 @@ public class Job
       {
         Staff.Add( newStaff );
         Manager.Current.MoneyChanged( -1 * goldCost );
+        currentStateUpdated?.Invoke();
         return true;
       }
     }
