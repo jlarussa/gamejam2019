@@ -46,7 +46,7 @@ public class Day
             if (DateTime.UtcNow > nextJobTime)
             {
                 jobs.AddJob(difficulty);
-                nextJobTime = DateTime.UtcNow + new TimeSpan(0, 0, (int)((1.0 / difficulty) * standardJobRate));
+                nextJobTime = DateTime.UtcNow + new TimeSpan(0, 0, Mathf.Max(standardJobRate - difficulty, 10));
             }
         }
     }

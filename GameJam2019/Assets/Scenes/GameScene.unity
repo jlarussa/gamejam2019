@@ -330,6 +330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxEmployees: 10
+  RecruitCost: 300
   DefaultAllotmentPoints: 4
   MaxDefaultPointsPerSkill: 2
   Employees: []
