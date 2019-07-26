@@ -13,6 +13,8 @@ public class Job
     failed = 3,
     expired = 4
   }
+
+  public int BaseTrainCost = 250;
   
   private int requiredHacking;
   public int RequiredHacking => requiredHacking;
@@ -93,16 +95,15 @@ public class Job
 
     if ( training )
     {
-      goldCost = 100 * difficulty;
       Penalty = 0;
       goldReward = 0;
       PersonnelLimit = 1;
       expiration = 999;
+      duration = 60;
     }
     else
     {
       var random = new System.Random(DateTime.UtcNow.Millisecond);
-      goldCost = 25 * difficulty;
       Penalty = 25 * difficulty;
       goldReward = 100 * difficulty;
       requiredHacking = random.Next( 1, difficulty );
@@ -229,11 +230,30 @@ public class Job
     {
       return false;
     }
-    
-    if ( Staff.Count < PersonnelLimit)
+
+    if ( trainAssassination )
     {
-      Staff.Add( newStaff );
-      return true;
+      goldCost = ( difficulty * newStaff.Assassination + 1 ) * BaseTrainCost;
+    }
+    
+    if ( trainHacking )
+    {
+      goldCost = difficulty * newStaff.Hacking + 1 * BaseTrainCost;
+    }
+    
+    if ( trainStealth )
+    {
+      goldCost = difficulty * newStaff.Stealth + 1 * BaseTrainCost;
+    }
+
+    if ( Manager.Current.CanChangeMoney( -1 * goldCost ) )
+    {
+      if ( Staff.Count < PersonnelLimit)
+      {
+        Staff.Add( newStaff );
+        Manager.Current.MoneyChanged( -1 * goldCost );
+        return true;
+      }
     }
 
     return false;
