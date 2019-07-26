@@ -6,6 +6,12 @@ using UnityEngine.UI;
 
 public class Manager : MonoBehaviour
 {
+    public static Manager Current
+    {
+        get;
+        private set;
+    }
+
     public GameEvent DayEndEvent;
     
     private Day currentDay;
@@ -15,7 +21,7 @@ public class Manager : MonoBehaviour
     private int dayCount = 0;
     public int DayCount => dayCount;
 
-    private int totalMoney = 0;
+    private int totalMoney = 1000;
     public int TotalMoney => totalMoney;
 
     private int dailyMoney = 0;
@@ -68,13 +74,23 @@ public class Manager : MonoBehaviour
         DayEndEvent.Raise();
     }
 
-    void MoneyChanged( int money )
+    public bool CanChangeMoney( int money )
+    {
+        return totalMoney + money >= 0;
+    }
+    
+    public void MoneyChanged( int money )
     {
         totalMoney += money;
         dailyMoney += money;
         DayMoneyDisplay.text = "$" + dailyMoney;
         TotalMoneyDisplay.text = "$" + totalMoney;
+
     }
 
-    void Start() { jobs.MoneyUpdated += MoneyChanged; }
+    void Start()
+    {
+        jobs.MoneyUpdated += MoneyChanged;
+        Current = this;
+    }
 }
