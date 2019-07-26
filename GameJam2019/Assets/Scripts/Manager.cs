@@ -26,6 +26,18 @@ public class Manager : MonoBehaviour
 
     private int dailyMoney = 0;
     public int DailyMoney => dailyMoney;
+    
+    private string playerName;
+
+    public string PlayerName
+    {
+        get { return playerName; }
+        set
+        {
+            playerName = value;
+            nameText.text = "Welcome, " + playerName;
+        }
+    }
 
     [SerializeField]
     private EmployeeInventory employees;
@@ -48,6 +60,9 @@ public class Manager : MonoBehaviour
 
     [SerializeField]
     private Text planningText;
+
+    [SerializeField]
+    private Text nameText;
 
     // Update is called once per frame
     void FixedUpdate()
@@ -139,5 +154,10 @@ public class Manager : MonoBehaviour
         lateTime = DateTime.UtcNow;
         employees.RecruitNewEmployee();
         employees.RecruitNewEmployee();
+    }
+
+    public void SetName( string name )
+    {
+        PlayerName = name;
     }
 }
