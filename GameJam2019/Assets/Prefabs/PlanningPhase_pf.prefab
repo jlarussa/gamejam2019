@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 222187204145254440}
   - component: {fileID: 114717530835489216}
   - component: {fileID: 114175692019123314}
+  - component: {fileID: 114826466567200280}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -111,8 +112,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: OnDayStart
+      - m_Target: {fileID: 114826466567200280}
+        m_MethodName: playClip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -184,6 +185,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114826466567200280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1976152590768958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00229266c747e34bac3dc62f8bb2374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 68014326473ce9745a92d22385a14d6f, type: 3}
 --- !u!222 &222187204145254440
 CanvasRenderer:
   m_ObjectHideFlags: 1
