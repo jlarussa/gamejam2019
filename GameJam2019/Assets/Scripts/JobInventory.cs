@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class JobInventory : MonoBehaviour
 {
@@ -26,8 +28,7 @@ public class JobInventory : MonoBehaviour
     
     private Dictionary<Job, JobView> jobToView = new Dictionary<Job, JobView>();
 
-    private int jobEarnings = 0;
-    public int JobEarnings => jobEarnings;
+    public Action<int> MoneyUpdated;
 
     public void AddJob(int difficulty)
     {
@@ -72,8 +73,6 @@ public class JobInventory : MonoBehaviour
  
     public void NewDay(int difficulty)
     {
-        jobEarnings = 0;
-        
         foreach ( Job j in jobs )
         {
             j.OnJobCollected -= OnJobCompleted;
@@ -102,7 +101,7 @@ public class JobInventory : MonoBehaviour
         j.OnJobCollected -= OnJobCompleted;
         int jobEarn = j.CurrentState == Job.JobState.complete ? j.GoldReward : ( -1 * j.Penalty );
 
-        jobEarnings += jobEarn;
+        MoneyUpdated?.Invoke( jobEarn );
         toDestroy.Add( j );
         Destroy( jobToView[ j ].gameObject );
         jobToView.Remove( j );

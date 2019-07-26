@@ -18,6 +18,9 @@ public class Manager : MonoBehaviour
     private int totalMoney = 0;
     public int TotalMoney => totalMoney;
 
+    private int dailyMoney = 0;
+    public int DailyMoney => dailyMoney;
+
     [SerializeField]
     private EmployeeInventory employees;
 
@@ -41,7 +44,6 @@ public class Manager : MonoBehaviour
             currentDay.Tick();
             var timeRemaining = currentDay.Endtime - DateTime.UtcNow;
             ClockDisplay.text = ((int)timeRemaining.TotalSeconds).ToString();
-            DayMoneyDisplay.text = "$" + jobs.JobEarnings;
         }
     }
 
@@ -49,6 +51,8 @@ public class Manager : MonoBehaviour
     {
         Debug.Log("day start");
         dayCount++;
+        dailyMoney = 0;
+        MoneyChanged( 0 );
 
         currentDay = new Day(dayCount, jobs);
         currentDay.EndDay += OnDayEnd;
@@ -59,11 +63,18 @@ public class Manager : MonoBehaviour
     public void OnDayEnd()
     {
         Debug.Log("day end");
-
-        totalMoney += jobs.JobEarnings;
-        TotalMoneyDisplay.text = "$" + totalMoney;
         
         currentDay.EndDay -= OnDayEnd;
         DayEndEvent.Raise();
     }
+
+    void MoneyChanged( int money )
+    {
+        totalMoney += money;
+        dailyMoney += money;
+        DayMoneyDisplay.text = "$" + dailyMoney;
+        TotalMoneyDisplay.text = "$" + totalMoney;
+    }
+
+    void Start() { jobs.MoneyUpdated += MoneyChanged; }
 }
