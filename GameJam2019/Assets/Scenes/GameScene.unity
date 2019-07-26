@@ -822,25 +822,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114417276344135818, guid: 7eeeafb8a15854dd2b1101bc2cc1363b,
-        type: 2}
-      propertyPath: tutorialScreenParent
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114789253695683740, guid: 7eeeafb8a15854dd2b1101bc2cc1363b,
-        type: 2}
-      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 2054207256}
-    - target: {fileID: 114789253695683740, guid: 7eeeafb8a15854dd2b1101bc2cc1363b,
-        type: 2}
-      propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1682316964259636, guid: 7eeeafb8a15854dd2b1101bc2cc1363b, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eeeafb8a15854dd2b1101bc2cc1363b, type: 2}
   m_IsPrefabAsset: 0
@@ -2606,6 +2587,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 216652382}
+    - target: {fileID: 114527740932385524, guid: 4cf2e14794fcf4156823e12c808fcb25,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cf2e14794fcf4156823e12c808fcb25, type: 2}
   m_IsPrefabAsset: 0
