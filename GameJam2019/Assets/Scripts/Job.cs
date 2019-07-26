@@ -233,9 +233,10 @@ public class Job
     if ( Staff.Count < PersonnelLimit)
     {
       Staff.Add( newStaff );
+      return true;
     }
-    
-    return Staff.Count <= PersonnelLimit;
+
+    return false;
   }
 
   public bool RemoveEmployee( Employee removeStaff )

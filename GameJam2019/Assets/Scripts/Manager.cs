@@ -9,6 +9,8 @@ public class Manager : MonoBehaviour
     public GameEvent DayEndEvent;
     
     private Day currentDay;
+    
+    public int DaySeconds = 60;
 
     private int dayCount = 0;
     public int DayCount => dayCount;
@@ -51,7 +53,7 @@ public class Manager : MonoBehaviour
         currentDay = new Day(dayCount, jobs);
         currentDay.EndDay += OnDayEnd;
 
-        currentDay.Begin();
+        currentDay.Begin( DaySeconds );
     }
 
     public void OnDayEnd()
