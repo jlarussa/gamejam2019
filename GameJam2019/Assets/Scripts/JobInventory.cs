@@ -35,6 +35,7 @@ public class JobInventory : MonoBehaviour
         j.OnJobCollected += OnJobCompleted;
         jobs.Add(j);
         var spawnedJob = Instantiate(jobViewPrefab, transform);
+        spawnedJob.SetActive(true);
         JobView jView = spawnedJob.GetComponent<JobView>();
         jView.Initialize(j);
 

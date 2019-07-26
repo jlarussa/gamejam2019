@@ -16,6 +16,9 @@ public class JobView : MonoBehaviour
             titleText.text = sourceJob.Name;
             rewardText.text = "Reward: " + sourceJob.GoldReward.ToString();
             sourceJob.currentStateUpdated += OnJobStateUpdated;
+            HackingValue = 0;
+            StealthValue = 0;
+            AssassinationValue = 0;
         }
     }
     [SerializeField]
@@ -41,6 +44,54 @@ public class JobView : MonoBehaviour
 
     [SerializeField]
     private Button completeButton;
+
+    private int hackingValue;
+    public int HackingValue
+    {
+        get { return hackingValue; }
+        set 
+        { 
+            hackingValue = value;
+            currentHacking.text = value.ToString() + "/" + SourceJob.RequiredHacking.ToString();
+            hackingSlider.value = value / (float)SourceJob.RequiredHacking;
+        }
+    }
+    private int stealthValue;
+    public int StealthValue
+    {
+        get { return stealthValue; }
+        set
+        {
+            stealthValue = value;
+            currentStealth.text = value.ToString() + "/" + SourceJob.RequiredStealth.ToString();
+            stealthSlider.value = value / (float)SourceJob.RequiredStealth;
+        }
+    }
+    private int assassinationValue;
+    public int AssassinationValue
+    {
+        get { return assassinationValue; }
+        set
+        {
+            assassinationValue = value;
+            currentAssassination.text = value.ToString() + "/" + SourceJob.RequiredAssasination.ToString();
+            assassinationSlider.value = value / (float)SourceJob.RequiredAssasination;
+        }
+    }
+
+    [SerializeField]
+    private Text currentAssassination;
+    [SerializeField]
+    private Text currentStealth;
+    [SerializeField]
+    private Text currentHacking;
+
+    [SerializeField]
+    private Slider hackingSlider;
+    [SerializeField]
+    private Slider assassinationSlider;
+    [SerializeField]
+    private Slider stealthSlider;
 
     private List<EmployeeSlot> personnelImages = new List<EmployeeSlot>();
 
@@ -73,6 +124,9 @@ public class JobView : MonoBehaviour
                 if (!slot.occupied)
                 {
                     slot.SetEmployee(newStaff);
+                    HackingValue += newStaff.Hacking;
+                    AssassinationValue += newStaff.Assassination;
+                    StealthValue += newStaff.Stealth;
                     return;
                 }
             }
@@ -85,6 +139,9 @@ public class JobView : MonoBehaviour
         {
             SourceJob.RemoveEmployee(oldStaff);
             oldStaff.Away = false;
+            HackingValue -= oldStaff.Hacking;
+            AssassinationValue -= oldStaff.Assassination;
+            StealthValue -= oldStaff.Stealth;
             return true;
         }
         return false;
