@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9fed66279c7d8c74eb08706036a78df7, type: 3}
-  m_Name: HackingJobNames
+  m_Name: JobNames
   m_EditorClassIdentifier: 
   strings:
   - trigger the EMP
@@ -30,5 +30,25 @@ MonoBehaviour:
   - incriminate government officials
   - plant the keylogger
   - put bread in Brad's computer
-  - 
-  - 
+  - kill Steve Jobs again
+  - execute the witnesses
+  - eliminate the competition
+  - kill the CEO of Bank of E-Merica
+  - murder a few protesters to incite chaos
+  - kill our CEO to incite a power struggle
+  - infiltrate EvilCorp
+  - impersonate Governor Marx
+  - pickpocket the president
+  - plant evidence
+  - overwater the overseer's succulents
+  - set fire to grow room
+  - impersonate witnesses
+  - acquire new trenchcoats and fedoras
+  - corrupt the police
+  - smuggle drugs across the Neu-Canadian border
+  - office chipotle run
+  - reverse pickpocket a live grenade
+  - pick the lock on the chest
+  - show up to a meeting uninvited
+  - skip daily standup
+  - steal M&Ms from vending
