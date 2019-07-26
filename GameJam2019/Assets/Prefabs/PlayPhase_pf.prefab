@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 222779108042750242}
   - component: {fileID: 114297956913029516}
   - component: {fileID: 114637331700127696}
+  - component: {fileID: 114526235128504252}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -155,6 +156,7 @@ GameObject:
   - component: {fileID: 222302564342847778}
   - component: {fileID: 114863129203835318}
   - component: {fileID: 114679487953876062}
+  - component: {fileID: 114644118976398644}
   m_Layer: 0
   m_Name: Add Employee
   m_TagString: Untagged
@@ -303,6 +305,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114526235128504252
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1768731817683822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00229266c747e34bac3dc62f8bb2374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 68014326473ce9745a92d22385a14d6f, type: 3}
 --- !u!114 &114637331700127696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -353,8 +368,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: OnDayEnd
+      - m_Target: {fileID: 114526235128504252}
+        m_MethodName: playClip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -366,6 +381,19 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114644118976398644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1939903623375524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00229266c747e34bac3dc62f8bb2374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 68014326473ce9745a92d22385a14d6f, type: 3}
 --- !u!114 &114667463484939492
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,6 +468,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 0}
         m_MethodName: RecruitNewEmployee
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114644118976398644}
+        m_MethodName: playClip
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
