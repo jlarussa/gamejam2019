@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 [Serializable]
 public class Leaderboard : MonoBehaviour {
@@ -28,13 +29,24 @@ public class Leaderboard : MonoBehaviour {
 		public Entries body;
 	}
 
-	public Entries entries;
+	[SerializeField]
+	private Text leaderboardText;
 
-
-	// Use this for initialization
-	void Start ()
+	private Entries rows;
+	public Entries Rows
 	{
-		// StartCoroutine( GetLeaderboard( URL ) );
+		get { return rows; }
+		private set
+		{
+			rows = value;
+			leaderboardText.text = formatEntries();
+		}
+	}
+	
+	// Use this for initialization
+	void OnEnable ()
+	{
+		StartCoroutine( GetLeaderboard( URL ) );
 		//StartCoroutine(PostScore( URL, "Theo", 9003 ) );
 	}
 	
@@ -51,7 +63,7 @@ public class Leaderboard : MonoBehaviour {
 			}
 			else
 			{
-				entries = JsonUtility.FromJson<Entries>( webRequest.downloadHandler.text );
+				Rows = JsonUtility.FromJson<Entries>( webRequest.downloadHandler.text );
 				// Debug.Log( entries.scores[0].name + ": " + entries.scores[0].score );
 			}
 		}
@@ -76,5 +88,16 @@ public class Leaderboard : MonoBehaviour {
 				// Debug.Log( resp.body.scores[0].name + ": " + resp.body.scores[0].score );
 			}
 		}
+	}
+
+	private string formatEntries()
+	{
+		string result = "";
+		foreach ( Score s in Rows.scores )
+		{
+			result = result + String.Format( "{0}\t-\t{1}\n", s.name, s.score.ToString() );
+		}
+		
+		return result;
 	}
 }
