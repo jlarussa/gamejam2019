@@ -5,6 +5,7 @@ using UnityEngine;
 public class EmployeeInventory : MonoBehaviour
 {
     public int MaxEmployees = 10;
+    public int RecruitCost = 300;
 
     public int DefaultAllotmentPoints = 4;
     public int MaxDefaultPointsPerSkill = 2;
@@ -32,7 +33,11 @@ public class EmployeeInventory : MonoBehaviour
     {
         if ( Employees.Count < MaxEmployees )
         {
-            Employees.Add( CreateNewEmployee() );
+            if ( Manager.Current.CanChangeMoney( -1 * RecruitCost ) )
+            {
+                Employees.Add( CreateNewEmployee() );
+                Manager.Current.MoneyChanged( -1 * RecruitCost );
+            }
         }
     }
 

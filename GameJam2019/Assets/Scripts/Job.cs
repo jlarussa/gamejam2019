@@ -48,7 +48,7 @@ public class Job
   private string jobName;
   public string Name => jobName;
 
-  private int duration = 30;
+  private int duration = 15;
   public int Duration => duration;
 
   private int expiration = 30;
