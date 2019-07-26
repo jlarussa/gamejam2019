@@ -49,6 +49,9 @@ public class JobView : MonoBehaviour
   private Color CompleteColor;
 
   [SerializeField]
+  private Color FailedColor;
+
+  [SerializeField]
   private Image background;
 
   private int hackingValue;
@@ -191,6 +194,17 @@ public class JobView : MonoBehaviour
       completeButton.image.color = CompleteColor;
       background.color = CompleteColor;
     }
+    if (sourceJob.CurrentState == Job.JobState.failed)
+    {
+      StartCoroutine( FailureCoroutine() );
+    }
+  }
+
+  private IEnumerator FailureCoroutine()
+  {
+    background.color = FailedColor;
+    yield return new WaitForSeconds( 1 );
+    CompleteJob();
   }
 
   void FixedUpdate()

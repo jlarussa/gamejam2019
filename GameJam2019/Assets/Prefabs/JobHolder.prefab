@@ -1182,6 +1182,7 @@ MonoBehaviour:
   startButton: {fileID: 114923731313423484}
   completeButton: {fileID: 114763742445433420}
   CompleteColor: {r: 0, g: 1, b: 0, a: 1}
+  FailedColor: {r: 0.7735849, g: 0.28826985, b: 0.28826985, a: 1}
   background: {fileID: 114611210284312556}
   currentAssassination: {fileID: 114638812662421554}
   currentStealth: {fileID: 114951093184048196}
