@@ -280,7 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a00229266c747e34bac3dc62f8bb2374, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 68014326473ce9745a92d22385a14d6f, type: 3}
+  audioClip: {fileID: 8300000, guid: 6b42fa463c7a30046bc9d1a27281a20b, type: 3}
+  overrideAudioSource: {fileID: 0}
 --- !u!114 &114637331700127696
 MonoBehaviour:
   m_ObjectHideFlags: 1

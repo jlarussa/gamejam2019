@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31d03eb32f831848b889d2b8dc84dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 3636aa7107748c94fb29c6aa3399fa7d, type: 3}
+  audioClip: {fileID: 8300000, guid: 4c8f2d18fce6b484dbd8fa1d3a2bff7d, type: 3}
 --- !u!114 &114706124751121392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -282,6 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 68014326473ce9745a92d22385a14d6f, type: 3}
+  overrideAudioSource: {fileID: 0}
 --- !u!222 &222187204145254440
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -289,6 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 68014326473ce9745a92d22385a14d6f, type: 3}
+  overrideAudioSource: {fileID: 0}
 --- !u!114 &42787841
 MonoBehaviour:
   m_ObjectHideFlags: 0

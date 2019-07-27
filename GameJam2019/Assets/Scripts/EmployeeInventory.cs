@@ -24,7 +24,7 @@ public class EmployeeInventory : MonoBehaviour, IGameEventListener
 
     private List<int> availablePortaitIndexes = new List<int>();
 
-    void Start()
+    void Awake()
     {
         OnDayEndEvent.RegisterListener( this );
         for ( int i = 0; i < Portraits.Images.Count; i++ )

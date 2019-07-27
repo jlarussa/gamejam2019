@@ -7,12 +7,20 @@ public class PlaySFX : MonoBehaviour {
     protected AudioSource audioSource;
     public AudioClip audioClip;
 
+    [SerializeField]
+    private AudioSource overrideAudioSource;
+
+
     private void Start()
     {
-        if(audioSource == null)
+        if(overrideAudioSource == null)
         {
             audioSource = GameObject.FindWithTag("SFXSource").GetComponent<AudioSource>();
         }
+      else
+      {
+      audioSource = overrideAudioSource;
+      }
     }
 
     public void playClip()
