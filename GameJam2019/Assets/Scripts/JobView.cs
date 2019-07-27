@@ -168,7 +168,7 @@ public class JobView : MonoBehaviour
           HackingValue += newStaff.Hacking;
           AssassinationValue += newStaff.Assassination;
           StealthValue += newStaff.Stealth;
-          successChanceText.text = string.Format( "Success chance: {0}%", sourceJob.CompletionChance * 100 );
+          successChanceText.text = string.Format( "Success chance: {0}%", (sourceJob.CompletionChance * 100).ToString("n2") );
           return;
         }
       }
