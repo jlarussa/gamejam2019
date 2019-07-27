@@ -410,6 +410,34 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224796966225950156, guid: 0638056374f6b46d8a162a61b8b04634,
     type: 2}
   m_PrefabInternal: {fileID: 509071109}
+--- !u!1 &78391160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 78391161}
+  m_Layer: 0
+  m_Name: Screen Warning Overlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &78391161
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 78391160}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1350550259}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &96751156
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,6 +776,7 @@ MonoBehaviour:
   DefaultAllotmentPoints: 4
   MaxDefaultPointsPerSkill: 2
   Employees: []
+  EmployeeVeiws: []
   EmployeeUIPrefab: {fileID: 1288178350167238, guid: 0638056374f6b46d8a162a61b8b04634,
     type: 2}
   EmployeeUIParent: {fileID: 216652383}
@@ -756,6 +785,7 @@ MonoBehaviour:
   EmployeeDescriptions: {fileID: 11400000, guid: cc9679ce455896246b6a0668cbcc93e2,
     type: 2}
   Portraits: {fileID: 11400000, guid: abf6b1927588d4623b18bf4aa602eebf, type: 2}
+  OnDayEndEvent: {fileID: 11400000, guid: 1dcc3bd76f0cf43d8933e67b8345f6a9, type: 2}
 --- !u!114 &216652388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9448,6 +9478,8 @@ MonoBehaviour:
   lateDisplay: {fileID: 632227269}
   planningText: {fileID: 1828649782}
   nameText: {fileID: 783422667}
+  warningOverlay: {fileID: 78391160}
+  whenToDisplayTimeWarning: 10
 --- !u!4 &1350550259
 Transform:
   m_ObjectHideFlags: 0
@@ -9457,7 +9489,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 272.71005, y: 518.4405, z: -43.95749}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 78391161}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

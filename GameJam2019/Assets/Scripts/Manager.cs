@@ -64,6 +64,12 @@ public class Manager : MonoBehaviour
     [SerializeField]
     private Text nameText;
 
+    [SerializeField]
+    private GameObject warningOverlay;
+
+    [SerializeField]
+    private float whenToDisplayTimeWarning = 10.0f;
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -72,6 +78,10 @@ public class Manager : MonoBehaviour
             currentDay.Tick();
             var timeRemaining = currentDay.Endtime - DateTime.UtcNow;
             ClockDisplay.text = ((int)timeRemaining.TotalSeconds).ToString();
+            if  (timeRemaining < TimeSpan.FromSeconds( whenToDisplayTimeWarning ) && !warningOverlay.activeInHierarchy )
+            {
+              warningOverlay.SetActive( true );
+            }
         }
         else
         {
@@ -130,9 +140,12 @@ public class Manager : MonoBehaviour
         currentDay.EndDay -= OnDayEnd;
         DayEndEvent.Raise();
         CreateDay();
-    }
+        // Reset time out warning
+        warningOverlay.SetActive( false );
 
-    public bool CanChangeMoney( int money )
+  }
+
+  public bool CanChangeMoney( int money )
     {
         return totalMoney + money >= 0;
     }
@@ -147,8 +160,9 @@ public class Manager : MonoBehaviour
     }
 
     void Start()
-    {
-        jobs.MoneyUpdated += MoneyChanged;
+  {
+    warningOverlay.SetActive( false );
+    jobs.MoneyUpdated += MoneyChanged;
         Current = this;
         CreateDay();
         lateTime = DateTime.UtcNow;

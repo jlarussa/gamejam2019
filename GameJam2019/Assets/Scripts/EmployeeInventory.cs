@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EmployeeInventory : MonoBehaviour
+public class EmployeeInventory : MonoBehaviour, IGameEventListener
 {
     public int MaxEmployees = 10;
     public int RecruitCost = 300;
@@ -11,6 +11,7 @@ public class EmployeeInventory : MonoBehaviour
     public int MaxDefaultPointsPerSkill = 2;
 
     public List<GameObject> Employees = new List<GameObject>();
+    public List<EmployeeView> EmployeeVeiws = new List<EmployeeView>();
 
     public GameObject EmployeeUIPrefab = null;
     public Transform EmployeeUIParent = null;
@@ -19,10 +20,13 @@ public class EmployeeInventory : MonoBehaviour
     public StringList EmployeeDescriptions = null;
     public ImageList Portraits = null;
 
+  public GameEvent OnDayEndEvent = null;
+
     private List<int> availablePortaitIndexes = new List<int>();
 
     void Start()
     {
+        OnDayEndEvent.RegisterListener( this );
         for ( int i = 0; i < Portraits.Images.Count; i++ )
         {
             availablePortaitIndexes.Add( i );
@@ -35,7 +39,9 @@ public class EmployeeInventory : MonoBehaviour
         {
             if ( Manager.Current.CanChangeMoney( -1 * RecruitCost ) )
             {
-                Employees.Add( CreateNewEmployee() );
+                var employeeObj = CreateNewEmployee();
+                Employees.Add( employeeObj );
+                EmployeeVeiws.Add( employeeObj.GetComponent<EmployeeView>() );
                 Manager.Current.MoneyChanged( -1 * RecruitCost );
             }
         }
@@ -116,4 +122,16 @@ public class EmployeeInventory : MonoBehaviour
 
         return instance;
     }
+
+  public void OnEventRaised( GameEvent e )
+  {
+    if ( e == OnDayEndEvent )
+    {
+      // Set all employees back to ready status
+      foreach ( var view in EmployeeVeiws )
+      {
+        view.EmployeeData.Away = false;
+      }
+    }
+  }
 }
