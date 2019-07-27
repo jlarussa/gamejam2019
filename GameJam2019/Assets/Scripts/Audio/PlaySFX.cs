@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlaySFX : MonoBehaviour {
 
-    private AudioSource audioSource;
+    protected AudioSource audioSource;
     public AudioClip audioClip;
 
     private void Start()

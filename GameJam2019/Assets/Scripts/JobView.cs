@@ -66,6 +66,15 @@ public class JobView : MonoBehaviour
   [SerializeField]
   private float expiredWaitTime = 1.5f;
 
+  [SerializeField]
+  private GameEvent OnSucceededEvent;
+
+  [SerializeField]
+  private GameEvent OnExpiredEvent;
+
+  [SerializeField]
+  private GameEvent OnFailureEvent;
+
   private int hackingValue;
   public int HackingValue
   {
@@ -205,11 +214,14 @@ public class JobView : MonoBehaviour
     {
       completeButton.image.color = InProgressColor;
       background.color = InProgressColor;
+      startButton.gameObject.SetActive( false );
+      completeButton.gameObject.SetActive( true );
     }
     if (sourceJob.CurrentState == Job.JobState.complete)
     {
       completeButton.image.color = CompleteColor;
       background.color = CompleteColor;
+      OnSucceededEvent?.Raise();
     }
     if (sourceJob.CurrentState == Job.JobState.failed)
     {
@@ -223,6 +235,8 @@ public class JobView : MonoBehaviour
 
   private IEnumerator FailureCoroutine()
   {
+    // Raise event so sound can play when color transiton happends
+    OnFailureEvent?.Raise();
     background.color = FailedColor;
     yield return new WaitForSeconds( failedWaitTime );
     CompleteJob();
@@ -230,6 +244,7 @@ public class JobView : MonoBehaviour
 
   private IEnumerator ExpiredCoroutine()
   {
+    OnExpiredEvent?.Raise();
     background.color = ExpiredColor;
     yield return new WaitForSeconds( expiredWaitTime );
     CompleteJob();
