@@ -125,7 +125,14 @@ public class Job
     {
       if ( DateTime.UtcNow > endTime )
       {
-        ExpireJob();
+        if ( CanStart() )
+        {
+          StartJob();
+        }
+        else
+        {
+          ExpireJob();
+        }
       }
     }
   }
@@ -150,7 +157,7 @@ public class Job
   public void ExpireJob()
   {
     CurrentState = JobState.expired;
-    CollectJob();
+    //CollectJob();
   }
 
   public void EndJob()

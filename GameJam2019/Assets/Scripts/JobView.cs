@@ -49,10 +49,22 @@ public class JobView : MonoBehaviour
   private Color CompleteColor;
 
   [SerializeField]
+  private Color InProgressColor;
+
+  [SerializeField]
   private Color FailedColor;
 
   [SerializeField]
+  private Color ExpiredColor;
+
+  [SerializeField]
   private Image background;
+
+  [SerializeField]
+  private float failedWaitTime = 1.5f;
+
+  [SerializeField]
+  private float expiredWaitTime = 1.5f;
 
   private int hackingValue;
   public int HackingValue
@@ -189,6 +201,11 @@ public class JobView : MonoBehaviour
     stateText.text = SourceJob.CurrentState.ToString();
     completeButton.interactable = CanCollectJob();
     startButton.interactable = SourceJob.CanStart();
+    if (sourceJob.CurrentState == Job.JobState.inProgress )
+    {
+      completeButton.image.color = InProgressColor;
+      background.color = InProgressColor;
+    }
     if (sourceJob.CurrentState == Job.JobState.complete)
     {
       completeButton.image.color = CompleteColor;
@@ -198,12 +215,23 @@ public class JobView : MonoBehaviour
     {
       StartCoroutine( FailureCoroutine() );
     }
+    if ( sourceJob.CurrentState == Job.JobState.expired )
+    {
+      StartCoroutine( ExpiredCoroutine() );
+    }
   }
 
   private IEnumerator FailureCoroutine()
   {
     background.color = FailedColor;
-    yield return new WaitForSeconds( 1 );
+    yield return new WaitForSeconds( failedWaitTime );
+    CompleteJob();
+  }
+
+  private IEnumerator ExpiredCoroutine()
+  {
+    background.color = ExpiredColor;
+    yield return new WaitForSeconds( expiredWaitTime );
     CompleteJob();
   }
 
