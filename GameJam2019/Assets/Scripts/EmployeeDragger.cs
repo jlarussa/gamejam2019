@@ -13,8 +13,10 @@ private Vector2 originalLocation;
 	void Update () {
 		if ( dragging )
 		{
-			transform.position = new Vector3( Input.mousePosition.x, Input.mousePosition.y, -1 );
-		}
+			var v3 = new Vector3( Input.mousePosition.x, Input.mousePosition.y, 10 );
+      transform.position = Camera.main.ScreenToWorldPoint( v3 );
+
+    }
 	}
 
 	public override void OnPointerDown( PointerEventData eventData)

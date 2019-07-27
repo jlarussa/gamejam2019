@@ -590,6 +590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 2caf3a8ba11a81f46becb92fcd09605a, type: 3}
+  overrideAudioSource: {fileID: 0}
 --- !u!114 &114170929704689224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -762,6 +763,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 27d765a3941a83947b597f8a067b6854, type: 3}
+  overrideAudioSource: {fileID: 0}
 --- !u!114 &114373999677740564
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -829,7 +831,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.754717, g: 0.7420681, b: 0.6037736, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1105,7 +1107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.75, g: 0.6, b: 0.7232143, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1240,7 +1242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.6, g: 0.6769737, b: 0.75, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1911,8 +1913,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: -74.25}
-  m_SizeDelta: {x: 100, y: 148.5}
+  m_AnchoredPosition: {x: 50, y: -147.6}
+  m_SizeDelta: {x: 100, y: 295.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224805744386523918
 RectTransform:

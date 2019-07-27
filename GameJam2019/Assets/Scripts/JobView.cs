@@ -46,6 +46,9 @@ public class JobView : MonoBehaviour
   private Button completeButton;
 
   [SerializeField]
+  private GameObject collectVFX;
+
+  [SerializeField]
   private Color CompleteColor;
 
   [SerializeField]
@@ -219,6 +222,7 @@ public class JobView : MonoBehaviour
     }
     if (sourceJob.CurrentState == Job.JobState.complete)
     {
+      collectVFX.gameObject.SetActive( true );
       completeButton.image.color = CompleteColor;
       background.color = CompleteColor;
       OnSucceededEvent?.Raise();

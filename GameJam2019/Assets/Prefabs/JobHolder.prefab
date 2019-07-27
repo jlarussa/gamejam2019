@@ -219,7 +219,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1433446612270334
 GameObject:
   m_ObjectHideFlags: 1
@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 114188784384839166}
   - component: {fileID: 114923731313423484}
   - component: {fileID: 114202726492201000}
+  - component: {fileID: 114349342242757020}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -1137,6 +1138,19 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114349342242757020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669035535782776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00229266c747e34bac3dc62f8bb2374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 68014326473ce9745a92d22385a14d6f, type: 3}
+  overrideAudioSource: {fileID: 0}
 --- !u!114 &114361263277677112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1298,6 +1312,7 @@ MonoBehaviour:
   rewardText: {fileID: 114006431165276190}
   startButton: {fileID: 114923731313423484}
   completeButton: {fileID: 114763742445433420}
+  collectVFX: {fileID: 1420274905733096}
   CompleteColor: {r: 0, g: 1, b: 0, a: 1}
   InProgressColor: {r: 0.9951428, g: 1, b: 0, a: 1}
   FailedColor: {r: 0.7735849, g: 0.28826985, b: 0.28826985, a: 1}
@@ -1305,9 +1320,9 @@ MonoBehaviour:
   background: {fileID: 114611210284312556}
   failedWaitTime: 2
   expiredWaitTime: 2
-  OnSucceededEvent: {fileID: 0}
-  OnExpiredEvent: {fileID: 0}
-  OnFailureEvent: {fileID: 0}
+  OnSucceededEvent: {fileID: 11400000, guid: 2cb3b41d121927a44bb5873f8e0c68bb, type: 2}
+  OnExpiredEvent: {fileID: 11400000, guid: 2bd108707cef35d44a409cfb4be3966f, type: 2}
+  OnFailureEvent: {fileID: 11400000, guid: d6e8f1656288e2849b81a6bc74ce48c5, type: 2}
   currentAssassination: {fileID: 114638812662421554}
   currentStealth: {fileID: 114951093184048196}
   currentHacking: {fileID: 114891843325762418}
@@ -1739,6 +1754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 7c1672a42b602bb4f98e6e447daf4df2, type: 3}
+  overrideAudioSource: {fileID: 0}
 --- !u!114 &114763742445433420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1791,6 +1807,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 114728175068188734}
         m_MethodName: playClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 1749c28d9eedddb44a6beab63aed4a92, type: 2}
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2225,6 +2252,17 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 114349342242757020}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
