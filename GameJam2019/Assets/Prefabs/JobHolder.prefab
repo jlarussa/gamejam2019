@@ -606,6 +606,7 @@ GameObject:
   - component: {fileID: 114607997823623484}
   - component: {fileID: 114863124933351698}
   - component: {fileID: 114435158444196086}
+  - component: {fileID: 114919231039247246}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -2059,6 +2060,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114919231039247246}
+        m_MethodName: playClip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114871345687322742
@@ -2207,6 +2219,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: 20
   m_LayoutPriority: 1
+--- !u!114 &114919231039247246
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948804616345702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a00229266c747e34bac3dc62f8bb2374, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 27d765a3941a83947b597f8a067b6854, type: 3}
+  overrideAudioSource: {fileID: 0}
 --- !u!114 &114923731313423484
 MonoBehaviour:
   m_ObjectHideFlags: 1
