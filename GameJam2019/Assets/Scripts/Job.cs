@@ -50,11 +50,14 @@ public class Job
   private string jobName;
   public string Name => jobName;
 
-  private int duration = 15;
+  private int duration = ExpirationConst;
   public int Duration => duration;
 
-  private int expiration = 30;
+  private int expiration = DurationConst;
   public int Expiration => expiration;
+
+  public static readonly int DurationConst = 15;
+  public static readonly int ExpirationConst = 15;
 
   public List<Employee> Staff { get; set; } = new List<Employee>();
 

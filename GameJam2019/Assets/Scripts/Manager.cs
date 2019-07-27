@@ -68,26 +68,35 @@ public class Manager : MonoBehaviour
     private GameObject warningOverlay;
 
     [SerializeField]
-    private float whenToDisplayTimeWarning = 10.0f;
+    private float timeWarning = 4.0f;
+
+    [SerializeField]
+    private GameEvent TimeWarningEvent;
 
     // Update is called once per frame
     void FixedUpdate()
     {
         if (currentDay != null && currentDay.inProgress)
         {
-            currentDay.Tick();
             var timeRemaining = currentDay.Endtime - DateTime.UtcNow;
             ClockDisplay.text = ((int)timeRemaining.TotalSeconds).ToString();
-            if  (timeRemaining < TimeSpan.FromSeconds( whenToDisplayTimeWarning ) && !warningOverlay.activeInHierarchy )
-            {
-              warningOverlay.SetActive( true );
-            }
+
+          // IF TIME REMAINING IS NOT ENOUGH TO COMPLETE A JOB, WARN PLAYER. ALSO STOP SPAWNING JOBS
+          float timeToStopSpawningJobsAndWarnPlayer = Job.DurationConst + timeWarning;
+          if ( timeRemaining < TimeSpan.FromSeconds( timeToStopSpawningJobsAndWarnPlayer ) && !warningOverlay.activeInHierarchy )
+          {
+            warningOverlay.SetActive( true );
+            currentDay.SpawnJobs = false;
+            TimeWarningEvent.Raise();
+          }
         }
         else
         {
             lateDisplay.text = "It looks like you're already " + ((int)(DateTime.UtcNow - lateTime).TotalSeconds).ToString() + " seconds late.";
         }
-    }
+        // Tick needs to happen at the end of the update since ticking can cause the day to end and create a new day during the same update!
+        currentDay.Tick();
+  }
 
     public void CreateDay()
     {
@@ -136,13 +145,11 @@ public class Manager : MonoBehaviour
     public void OnDayEnd()
     {
         Debug.Log("day end");
-        
-        currentDay.EndDay -= OnDayEnd;
-        DayEndEvent.Raise();
-        CreateDay();
-        // Reset time out warning
-        warningOverlay.SetActive( false );
-
+      // Reset time out warning
+      warningOverlay.SetActive( false );
+      currentDay.EndDay -= OnDayEnd;
+      DayEndEvent.Raise();
+      CreateDay();
   }
 
   public bool CanChangeMoney( int money )

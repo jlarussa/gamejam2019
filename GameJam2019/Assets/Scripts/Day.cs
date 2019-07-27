@@ -25,6 +25,8 @@ public class Day
 
     private DateTime nextJobTime;
 
+    public bool SpawnJobs = true;
+
     public Day(int difficulty, JobInventory ji)
     {
         this.difficulty = difficulty;
@@ -43,7 +45,7 @@ public class Day
         {
             jobs.Tick();
             
-            if (DateTime.UtcNow > nextJobTime)
+            if (DateTime.UtcNow > nextJobTime && SpawnJobs )
             {
                 jobs.AddJob(difficulty);
                 nextJobTime = DateTime.UtcNow + new TimeSpan(0, 0, Mathf.Max(standardJobRate - difficulty, 10));
