@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - SFXSource
+  - BGMusicSource
   layers:
   - Default
   - TransparentFX
@@ -39,6 +40,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Particles
+    uniqueID: 3458657567
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

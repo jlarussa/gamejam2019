@@ -1010,7 +1010,7 @@ Canvas:
   m_GameObject: {fileID: 230726071}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1529797375}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -9381,7 +9381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1347743993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10547,6 +10547,26 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 224476328025918188, guid: 084386a9c77024c1c9e4a76f73559be4,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224476328025918188, guid: 084386a9c77024c1c9e4a76f73559be4,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224476328025918188, guid: 084386a9c77024c1c9e4a76f73559be4,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224476328025918188, guid: 084386a9c77024c1c9e4a76f73559be4,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224611741390023720, guid: 084386a9c77024c1c9e4a76f73559be4,
         type: 2}
       propertyPath: m_AnchorMin.y
@@ -10573,26 +10593,6 @@ Prefab:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224611741390023720, guid: 084386a9c77024c1c9e4a76f73559be4,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224476328025918188, guid: 084386a9c77024c1c9e4a76f73559be4,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224476328025918188, guid: 084386a9c77024c1c9e4a76f73559be4,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224476328025918188, guid: 084386a9c77024c1c9e4a76f73559be4,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224476328025918188, guid: 084386a9c77024c1c9e4a76f73559be4,
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
