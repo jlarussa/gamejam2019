@@ -42,7 +42,7 @@ public class EmployeeInventory : MonoBehaviour, IGameEventListener
                 var employeeObj = CreateNewEmployee();
                 Employees.Add( employeeObj );
                 EmployeeVeiws.Add( employeeObj.GetComponent<EmployeeView>() );
-                Manager.Current.MoneyChanged( -1 * RecruitCost );
+                Manager.Current.MoneyChanged( -1 * RecruitCost, true );
             }
         }
     }

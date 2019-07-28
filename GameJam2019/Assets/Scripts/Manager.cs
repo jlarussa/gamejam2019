@@ -21,7 +21,7 @@ public class Manager : MonoBehaviour
     private int dayCount = 0;
     public int DayCount => dayCount;
 
-    private int totalMoney = 1000;
+    private int totalMoney = 900;
     public int TotalMoney => totalMoney;
 
     private int dailyMoney = 0;
@@ -165,11 +165,14 @@ public class Manager : MonoBehaviour
     {
         return totalMoney + money >= 0;
     }
-    
-    public void MoneyChanged( int money )
+
+    public void MoneyChanged(int money, bool recruit = false)
     {
         totalMoney += money;
-        dailyMoney = Mathf.Max(dailyMoney+money, 0);
+        if (!recruit)
+        {
+            dailyMoney = Mathf.Max(dailyMoney + money, 0);
+        }
         DayMoneyDisplay.text = "$" + dailyMoney + "/" + currentDay.RequiredEarning;
         TotalMoneyDisplay.text = "$" + totalMoney;
 
@@ -182,6 +185,7 @@ public class Manager : MonoBehaviour
         Current = this;
         CreateDay();
         lateTime = DateTime.UtcNow;
+        employees.RecruitNewEmployee();
         employees.RecruitNewEmployee();
         employees.RecruitNewEmployee();
     }

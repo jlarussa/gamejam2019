@@ -108,7 +108,7 @@ public class Job
     {
       var random = new System.Random(DateTime.UtcNow.Millisecond);
       Penalty = 25 * difficulty;
-      goldReward = 100 * difficulty;
+      goldReward = 100 + 25 * difficulty;
       requiredHacking = random.Next( 1, difficulty + 2);
       requiredAssassination = random.Next( 1, difficulty + 2);
       requiredStealth = random.Next( 1, difficulty + 2);

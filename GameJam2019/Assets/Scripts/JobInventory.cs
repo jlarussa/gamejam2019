@@ -28,7 +28,7 @@ public class JobInventory : MonoBehaviour
     
     private Dictionary<Job, JobView> jobToView = new Dictionary<Job, JobView>();
 
-    public Action<int> MoneyUpdated;
+    public Action<int, bool> MoneyUpdated;
 
     public void AddJob(int difficulty)
     {
@@ -101,7 +101,7 @@ public class JobInventory : MonoBehaviour
         j.OnJobCollected -= OnJobCompleted;
         int jobEarn = j.CurrentState == Job.JobState.complete ? j.GoldReward : ( -1 * j.Penalty );
 
-        MoneyUpdated?.Invoke( jobEarn );
+        MoneyUpdated?.Invoke( jobEarn, false );
         toDestroy.Add( j );
         Destroy( jobToView[ j ].gameObject );
         jobToView.Remove( j );
