@@ -73,6 +73,9 @@ public class Manager : MonoBehaviour
     [SerializeField]
     private GameEvent TimeWarningEvent;
 
+    [SerializeField]
+    private Leaderboard leaderboard;
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -149,6 +152,12 @@ public class Manager : MonoBehaviour
       warningOverlay.SetActive( false );
       currentDay.EndDay -= OnDayEnd;
       DayEndEvent.Raise();
+
+      if ( currentDay.RequiredEarning > dailyMoney )
+      {
+          EndGame();
+      }
+      
       CreateDay();
   }
 
@@ -180,5 +189,14 @@ public class Manager : MonoBehaviour
     public void SetName( string name )
     {
         PlayerName = name;
+    }
+
+    void EndGame()
+    {
+        // end the game
+        leaderboard.gameObject.SetActive( true );
+        leaderboard.PostPlayerScore( PlayerName, totalMoney );
+
+        dayCount = 0;
     }
 }

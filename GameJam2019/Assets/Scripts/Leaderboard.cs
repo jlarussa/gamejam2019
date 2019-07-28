@@ -32,6 +32,9 @@ public class Leaderboard : MonoBehaviour {
 	[SerializeField]
 	private Text leaderboardText;
 
+	[SerializeField]
+	private GameObject gameOverObject;
+
 	private Entries rows;
 	public Entries Rows
 	{
@@ -47,8 +50,14 @@ public class Leaderboard : MonoBehaviour {
 	void OnEnable ()
 	{
 		StartCoroutine( GetLeaderboard( URL ) );
-		//StartCoroutine(PostScore( URL, "Theo", 9003 ) );
 	}
+
+	public void PostPlayerScore( string name, int score )
+	{
+		gameOverObject.SetActive( true );
+		StartCoroutine( PostScore( URL, name, score ) );
+	}
+	
 	
 	IEnumerator GetLeaderboard(string url)
 	{
@@ -85,7 +94,9 @@ public class Leaderboard : MonoBehaviour {
 			else
 			{
 				PostResponse resp = JsonUtility.FromJson<PostResponse>( webRequest.downloadHandler.text );
-				// Debug.Log( resp.body.scores[0].name + ": " + resp.body.scores[0].score );
+				Rows = resp.body;
+				
+				// Debug.Log( "resp: " + resp );
 			}
 		}
 	}
