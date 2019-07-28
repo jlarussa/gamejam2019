@@ -27,9 +27,9 @@ public class Manager : MonoBehaviour
     private int dailyMoney = 0;
     public int DailyMoney => dailyMoney;
     
-    private string playerName;
+    private string playerName = "Employee #999";
 
-    public string PlayerName
+    public string PlayerName 
     {
         get { return playerName; }
         set
