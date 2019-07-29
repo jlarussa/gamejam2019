@@ -56,7 +56,7 @@ public class Job
   private int expiration = DurationConst;
   public int Expiration => expiration;
 
-  public static readonly int DurationConst = 15;
+  public static readonly int DurationConst = 25;
   public static readonly int ExpirationConst = 15;
 
   public List<Employee> Staff { get; set; } = new List<Employee>();

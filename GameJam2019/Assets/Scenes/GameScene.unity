@@ -2002,32 +2002,32 @@ Prefab:
     - target: {fileID: 224003830034765490, guid: c3115e7310cb6564ea759fe6fac77978,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224003830034765490, guid: c3115e7310cb6564ea759fe6fac77978,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224003830034765490, guid: c3115e7310cb6564ea759fe6fac77978,
         type: 2}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224003830034765490, guid: c3115e7310cb6564ea759fe6fac77978,
         type: 2}
       propertyPath: m_AnchorMin.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224003830034765490, guid: c3115e7310cb6564ea759fe6fac77978,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224003830034765490, guid: c3115e7310cb6564ea759fe6fac77978,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224003830034765490, guid: c3115e7310cb6564ea759fe6fac77978,
         type: 2}
@@ -2047,6 +2047,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224003830034765490, guid: c3115e7310cb6564ea759fe6fac77978,
     type: 2}
   m_PrefabInternal: {fileID: 1324569546}
+--- !u!114 &1324569548 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114157577192618328, guid: c3115e7310cb6564ea759fe6fac77978,
+    type: 2}
+  m_PrefabInternal: {fileID: 1324569546}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1331229295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2426,6 +2432,7 @@ MonoBehaviour:
   TotalMoneyDisplay: {fileID: 636652070}
   lateDisplay: {fileID: 632227269}
   planningText: {fileID: 1828649782}
+  endText: {fileID: 1324569548}
   nameText: {fileID: 783422667}
   warningOverlay: {fileID: 384710712}
   timeWarning: 4
@@ -2659,6 +2666,10 @@ Prefab:
       propertyPath: Response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2054207256}
+    - target: {fileID: 1839845743151086, guid: 606ab6016349e4f63af4c41f9b15ae57, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 606ab6016349e4f63af4c41f9b15ae57, type: 2}
   m_IsPrefabAsset: 0

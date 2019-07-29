@@ -27,7 +27,7 @@ public class Manager : MonoBehaviour
     private int dailyMoney = 0;
     public int DailyMoney => dailyMoney;
     
-    private string playerName = "Employee #999";
+    private string playerName = "Employee 999";
 
     public string PlayerName 
     {
@@ -62,6 +62,9 @@ public class Manager : MonoBehaviour
     private Text planningText;
 
     [SerializeField]
+    private Text endText;
+
+    [SerializeField]
     private Text nameText;
 
     [SerializeField]
@@ -89,7 +92,7 @@ public class Manager : MonoBehaviour
           if ( timeRemaining < TimeSpan.FromSeconds( timeToStopSpawningJobsAndWarnPlayer ) && !warningOverlay.activeInHierarchy )
           {
             warningOverlay.SetActive( true );
-            currentDay.SpawnJobs = false;
+            //currentDay.SpawnJobs = false;
             TimeWarningEvent.Raise();
           }
         }
@@ -152,6 +155,7 @@ public class Manager : MonoBehaviour
       warningOverlay.SetActive( false );
       currentDay.EndDay -= OnDayEnd;
       DayEndEvent.Raise();
+        endText.text = "Looks like you made it through your " + AddOrdinal(DayCount) +  " work day. We'd say good job, but we expect you to perform to a satisfactory level.";
 
       if ( currentDay.RequiredEarning > dailyMoney )
       {
