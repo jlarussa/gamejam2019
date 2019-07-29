@@ -35,6 +35,9 @@ public class Leaderboard : MonoBehaviour {
 	[SerializeField]
 	private GameObject gameOverObject;
 
+    [SerializeField]
+    private Text gameOverText;
+
 	private Entries rows;
 	public Entries Rows
 	{
@@ -54,6 +57,7 @@ public class Leaderboard : MonoBehaviour {
 
 	public void PostPlayerScore( string name, int score )
 	{
+        gameOverText.text = "You couldn't even last " + Manager.Current.DayCount +" days at the company. You're fired. GAME OVER";
 		gameOverObject.SetActive( true );
 		StartCoroutine( PostScore( URL, name, score ) );
 	}
